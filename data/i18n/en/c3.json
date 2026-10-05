@@ -1,0 +1,557 @@
+{
+ "chapter": "C3",
+ "cards": {
+  "C3-01": {
+   "title": "The signal to go to the net",
+   "scene": "Your crosscourt skimmed the net and dropped in front of the opponent.",
+   "cue": "The opponent bends and swings up from below.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Up to the service line",
+    "why": "They're lifting it from below. Move in and take the floater as a volley.",
+    "caption": "You moved in and volleyed it"
+   },
+   "lo": {
+    "short": "Stay on the baseline",
+    "why": "Safe, but you let the floater bounce and the chance shrinks.",
+    "caption": "The chance went by"
+   },
+   "hi": {
+    "short": "All the way to the net at once",
+    "why": "If you run without stopping, the lob goes over your head. Stop when they hit.",
+    "caption": "It went over your head"
+   },
+   "coach": "When they lift it, that's when you go in.",
+   "next": "Once you're in, how far apart are you two?"
+  },
+  "C3-02": {
+   "title": "Spacing when you're both up",
+   "scene": "You're both at the net. Your partner's volley went deep down the middle.",
+   "cue": "You and your partner are more than five steps apart.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Close in toward the middle",
+    "why": "With the ball in the middle, the gap between you is the biggest hole. Close it.",
+    "caption": "You closed the hole"
+   },
+   "lo": {
+    "short": "Stay near the sideline",
+    "why": "Guarding the sideline is right, but you'll both be late on a ball down the middle.",
+    "caption": "Your partner barely reaches it"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "Our ball went deep — there's no reason to back off. It only makes the hole bigger.",
+    "caption": "Beaten through the middle"
+   },
+   "coach": "Ball in the middle? You both move to the middle.",
+   "next": "How many steps off the net?"
+  },
+  "C3-03": {
+   "title": "Both up: how far off the net?",
+   "scene": "You both came to the net. You're well behind your partner.",
+   "cue": "The opponent is getting set to hit low and fast.",
+   "question": "Where do you stand?",
+   "answer": {
+    "short": "Two or three steps off the net",
+    "why": "Any closer and you're weak to lobs; any farther and you're weak to balls at your feet. Two or three steps is just right.",
+    "caption": "You hit down on it"
+   },
+   "lo": {
+    "short": "Stay near the service line",
+    "why": "Safe against lobs, but you take low balls at your feet.",
+    "caption": "You barely dig it out"
+   },
+   "hi": {
+    "short": "Back off to the baseline",
+    "why": "With both opponents back, backing off means you can't reach a short ball.",
+    "caption": "You couldn't reach the short ball"
+   },
+   "coach": "When you're both up, stand two or three steps off the net.",
+   "next": "What if the ball is in the corner?"
+  },
+  "C3-04": {
+   "title": "The ball is in their left corner",
+   "scene": "Our ball went deep into the left corner of their court.",
+   "cue": "Your partner is up near the left sideline; you're front right.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Follow it toward the middle",
+    "why": "From the corner, their lanes are narrow. Your partner covers the line; you cover the middle.",
+    "caption": "You blocked the middle lane"
+   },
+   "lo": {
+    "short": "Stay on the right",
+    "why": "Almost nothing comes to the right sideline from that corner. The middle is open.",
+    "caption": "You chase it late and get it"
+   },
+   "hi": {
+    "short": "Wide and back on the right",
+    "why": "Moving away from the ball opens the middle even more. The angles are on the ball's side.",
+    "caption": "Beaten through the middle"
+   },
+   "coach": "Rotate together toward where the ball goes.",
+   "next": "What if a high ball comes?"
+  },
+  "C3-05": {
+   "title": "A high volley chance",
+   "scene": "The opponent's ball floats up above your shoulder.",
+   "cue": "Their net player is right in front of you.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "At the net player's feet",
+    "why": "Hit a high ball down. The nearby net player's feet are the hardest place to dig it out.",
+    "caption": "Drilled it at their feet"
+   },
+   "lo": {
+    "short": "Deep between them",
+    "why": "Not bad, but the player at the back has time to get it.",
+    "caption": "The back player gets it"
+   },
+   "hi": {
+    "short": "A lob volley over the net player",
+    "why": "Floating a high ball back hands the chance to them.",
+    "caption": "You got smashed"
+   },
+   "coach": "Hit a high volley at the feet of the closest player.",
+   "next": "What if they're both back?"
+  },
+  "C3-06": {
+   "title": "Both opponents back: where to?",
+   "scene": "Both opponents are holding on at the baseline.",
+   "cue": "The ball comes at waist height.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Deep between them",
+    "why": "With both back, the middle is safest. It gives them no angle, and they hesitate over who takes it.",
+    "caption": "You finished the weak reply"
+   },
+   "lo": {
+    "short": "A short angle",
+    "why": "A good idea, but it's hard to drop a waist-high ball short.",
+    "caption": "They run it down"
+   },
+   "hi": {
+    "short": "Hard at the sideline",
+    "why": "With both back, there's no need to go for the corner. It's a small target and you miss.",
+    "caption": "Went for the sideline — out"
+   },
+   "coach": "Against two players back, go deep down the middle.",
+   "next": "What if they're both up?"
+  },
+  "C3-07": {
+   "title": "Both opponents up: where to?",
+   "scene": "All four players are at the net.",
+   "cue": "Both opponents are side by side at the net.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "At the feet, between them",
+    "why": "When they're both up, the feet in the middle are hardest to handle. Nobody can hit up on it.",
+    "caption": "It went right between them"
+   },
+   "lo": {
+    "short": "A lob over both",
+    "why": "A good idea, but it's hard to lob deep off a volley.",
+    "caption": "They turn and get it back"
+   },
+   "hi": {
+    "short": "Hard at a player's chest",
+    "why": "Chest height is exactly where a net player likes it.",
+    "caption": "You gave them chest height"
+   },
+   "coach": "When they're both up, hit at the feet down the middle.",
+   "next": "What if a ball comes at your feet?"
+  },
+  "C3-08": {
+   "title": "A low ball at your partner's feet",
+   "scene": "The opponent's ball drops low at your partner's feet.",
+   "cue": "Your partner gets down almost to one knee.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Take one step back",
+    "why": "Your partner's ball will float. One step back and you can handle the ball hit down at you.",
+    "caption": "You stepped back and held"
+   },
+   "lo": {
+    "short": "Back off to the baseline",
+    "why": "Backing off is right, but that's too far. You barely reach a short volley.",
+    "caption": "You barely reach it"
+   },
+   "hi": {
+    "short": "Stay at the net",
+    "why": "If your partner's ball floats, they'll hit down at the closest feet — yours.",
+    "caption": "Drilled at your feet"
+   },
+   "coach": "When your partner lifts it, you take a step back.",
+   "next": "What if it comes to your feet?"
+  },
+  "C3-09": {
+   "title": "A ball at your feet: no forcing",
+   "scene": "The opponent's ball drops low at your feet.",
+   "cue": "Their net player is waiting right in front of you.",
+   "question": "Where do you send it?",
+   "answer": {
+    "short": "Lift it deep to the back player",
+    "why": "You have to hit up on a ball at your feet. Avoid the net player and go deep to the back player.",
+    "caption": "You lifted it deep and held on"
+   },
+   "lo": {
+    "short": "Drop it short down the middle",
+    "why": "Okay, but the back player can run in and get it.",
+    "caption": "They run in and get it back"
+   },
+   "hi": {
+    "short": "Hard toward the net player",
+    "why": "Hitting hard from your feet makes it float — a gift for the net player right in front.",
+    "caption": "A gift for the net player"
+   },
+   "coach": "At your feet: deep, not hard.",
+   "next": "Where do you stand after the block?"
+  },
+  "C3-10": {
+   "title": "After the low volley: where do you go?",
+   "scene": "You blocked the ball at your feet deep. The opponent takes it from the back.",
+   "cue": "The opponent lifts the low skidding ball.",
+   "question": "Where do you go, and what do you do?",
+   "answer": {
+    "short": "Close in and finish",
+    "why": "They have to lift a deep block. If you close in then, you can finish from above.",
+    "caption": "You closed in and finished"
+   },
+   "lo": {
+    "short": "Stay at the service line",
+    "why": "Not bad, but the next ball comes at your feet too.",
+    "caption": "Another ball at your feet"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "They're pushed back, and if you back off you can't reach the short ball.",
+    "caption": "It just dropped in front of you"
+   },
+   "coach": "If you blocked it deep, the next step is forward.",
+   "next": "When should you back off?"
+  },
+  "C3-11": {
+   "title": "A lob over your partner's head",
+   "scene": "The opponent's lob is going deep over your partner's head.",
+   "cue": "Your partner would have to turn their back to see the ball.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Chase it diagonally",
+    "why": "You see it from an angle, so you're faster than your partner with their back turned. Chase it and lob it back.",
+    "caption": "You chased it and lobbed it back"
+   },
+   "lo": {
+    "short": "Leave it to your partner",
+    "why": "Your partner has to run with their back to the net. Even if they get it, it'll be short.",
+    "caption": "Your partner's ball is short"
+   },
+   "hi": {
+    "short": "Close in to the middle and watch",
+    "why": "If you both just watch, nobody chases it.",
+    "caption": "Nobody chased it down"
+   },
+   "coach": "A lob over your partner's head is yours to chase.",
+   "next": "What if your partner smashes it?"
+  },
+  "C3-12": {
+   "title": "Covering your partner's smash",
+   "scene": "Your partner backs up to smash a lob.",
+   "cue": "Your partner has backed up to the service line.",
+   "question": "Where should you be?",
+   "answer": {
+    "short": "Side by side, one step back",
+    "why": "When your partner hits from back there, a blocked reply comes between you. Side by side, you can cover it.",
+    "caption": "You finished the blocked reply"
+   },
+   "lo": {
+    "short": "Stay at the net",
+    "why": "If the smash is good it's over, but a blocked reply slips between you.",
+    "caption": "Your partner barely blocks it"
+   },
+   "hi": {
+    "short": "Move toward your partner",
+    "why": "Move toward your partner and the right opens. The blocked reply goes there.",
+    "caption": "The right was open"
+   },
+   "coach": "When your partner backs up, line up beside them.",
+   "next": "What if you're the one smashing?"
+  },
+  "C3-13": {
+   "title": "Where to aim your smash",
+   "scene": "The opponents' lob is short. You can smash it.",
+   "cue": "The two opponents are one in front of the other, in the middle.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "At the front player's feet",
+    "why": "The front player is closest. Their feet leave the least time to react.",
+    "caption": "Drilled it at their feet"
+   },
+   "lo": {
+    "short": "Deep to the back player",
+    "why": "The back player has time to get it. Another lob comes.",
+    "caption": "Another lob came"
+   },
+   "hi": {
+    "short": "A sharp angle to the sideline",
+    "why": "Aiming a smash at the sideline is easy to miss. The target is narrow.",
+    "caption": "It went out over the sideline"
+   },
+   "coach": "Smash at the feet of the closest player.",
+   "next": "What about volley exchanges?"
+  },
+  "C3-14": {
+   "title": "Volley exchange",
+   "scene": "All four players are trading volleys at the net.",
+   "cue": "The ball went to the opponent at front left.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Half a step to the middle",
+    "why": "The front-left player often goes crosscourt — and that path runs through our middle.",
+    "caption": "Cut it off in its path"
+   },
+   "lo": {
+    "short": "Stay on the right",
+    "why": "The angle down your sideline is narrow. You're half a beat late on a ball through the middle.",
+    "caption": "Half a beat late"
+   },
+   "hi": {
+    "short": "Back off and wait",
+    "why": "Backing off in a volley exchange means you can't reach a short volley.",
+    "caption": "Beaten by the short volley"
+   },
+   "coach": "In volley exchanges too, rotate together toward the ball.",
+   "next": "Who breaks first?"
+  },
+  "C3-15": {
+   "title": "Volley battle: who breaks first?",
+   "scene": "Your partner's volley landed at the feet of the opponent at front right.",
+   "cue": "The opponent drops the racket close to the ground.",
+   "question": "How will the next ball come?",
+   "answer": {
+    "short": "Floating up, in front of you",
+    "why": "A ball at the feet has to be lifted. In this battle, whoever pops it up first loses.",
+    "caption": "You hit down on the floater"
+   },
+   "lo": {
+    "short": "Low through the middle",
+    "why": "It could, but it's hard to keep it low from their feet.",
+    "caption": "You got there late"
+   },
+   "hi": {
+    "short": "Hard at your body",
+    "why": "They can't hit hard from their feet. If you back off, the floater drops in front of you.",
+    "caption": "It dropped in front of you"
+   },
+   "coach": "In a volley battle, whoever pops it up first loses.",
+   "next": "When does the middle work?"
+  },
+  "C3-16": {
+   "title": "Between the two — when does it work?",
+   "scene": "One opponent is back; their net player is near the middle of the net.",
+   "cue": "The ball comes at waist height. Not a putaway.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Deep to the back player",
+    "why": "With the net player up, the middle belongs to them. Go deep to the back player.",
+    "caption": "You kept it away from the net player"
+   },
+   "lo": {
+    "short": "At the net player's feet",
+    "why": "A good target, but it's hard to place precisely from waist height.",
+    "caption": "The net player blocks it back"
+   },
+   "hi": {
+    "short": "Between them, down the middle",
+    "why": "With the net player standing there, the middle is easy to poach. It only works when they're level.",
+    "caption": "Cut off by the net player"
+   },
+   "coach": "If their net player is up, the middle belongs to them.",
+   "next": "What if the net player moves to the middle?"
+  },
+  "C3-17": {
+   "title": "Pulled wide by an angle: where's your partner?",
+   "scene": "An angled (short and wide) volley pulled you out wide to the right.",
+   "cue": "Our front right and middle are open.",
+   "question": "Where does your partner go?",
+   "answer": {
+    "short": "Shift to the middle",
+    "why": "When you're out wide, your partner takes the middle. You rotate together toward the ball.",
+    "caption": "Blocked it in the middle"
+   },
+   "lo": {
+    "short": "Stay on the left",
+    "why": "Guarding the left is right, but they'll be late on a ball through the middle.",
+    "caption": "Your partner barely reaches it"
+   },
+   "hi": {
+    "short": "Come over to your side too",
+    "why": "If you're both on the right, the whole left is open. Only come as far as the middle.",
+    "caption": "The left was open"
+   },
+   "coach": "If one gets pulled wide, the other takes the middle.",
+   "next": "And after you're pulled wide?"
+  },
+  "C3-18": {
+   "title": "Covering the angle, then resetting",
+   "scene": "Your partner covered the middle while you were pulled out by the angle.",
+   "cue": "The ball is coming to you as you go wide.",
+   "question": "Where do you go after hitting?",
+   "answer": {
+    "short": "Lob to buy time, then get back",
+    "why": "A lob buys you time to get back. Your partner moves back to the left.",
+    "caption": "You got back in position"
+   },
+   "lo": {
+    "short": "Hit hard and stay out there",
+    "why": "Hit it hard and it comes back fast. No time to get back.",
+    "caption": "You barely chase it down"
+   },
+   "hi": {
+    "short": "Go straight to the middle",
+    "why": "Your partner is already in the middle. If you both crowd the middle, the right opens.",
+    "caption": "Your spot was empty"
+   },
+   "coach": "When you're pulled wide, buy time and get back to your spot.",
+   "next": "What if you two are spread apart?"
+  },
+  "C3-19": {
+   "title": "A poach when they're both up",
+   "scene": "Both opponents are up at the net. You pick off a crosscourt ball.",
+   "cue": "The ball comes at chest height.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "At the feet, between them",
+    "why": "With both up, go at the feet down the middle. They leave it to each other and neither gets it.",
+    "caption": "You finished it between them"
+   },
+   "lo": {
+    "short": "At one player's body",
+    "why": "Not bad, but a ball at the body can be blocked back.",
+    "caption": "They block it back"
+   },
+   "hi": {
+    "short": "Hard at the front player's chest",
+    "why": "Chest height is the easiest ball for a net player. It comes right back.",
+    "caption": "It came right back"
+   },
+   "coach": "On a poach too: both up? Feet, down the middle.",
+   "next": "What if the line opens?"
+  },
+  "C3-20": {
+   "title": "When to give up the net — the retreat signal",
+   "scene": "Your partner's volley floated high. The opponent is moving under it.",
+   "cue": "The opponent has the racket back behind the head.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Both back off",
+    "why": "A short floater brings a smash. Give up the net and both back off to get it back.",
+    "caption": "You both backed off and held on"
+   },
+   "lo": {
+    "short": "Only to the service line",
+    "why": "Backing off is right, but you're still too close to handle a smash.",
+    "caption": "You barely got a racket on it"
+   },
+   "hi": {
+    "short": "Hold your ground at the net",
+    "why": "Standing at the net makes you the smash target. The closer you are, the less time you have.",
+    "caption": "The smash went in"
+   },
+   "coach": "When the ball floats short, give up the net.",
+   "next": "What if they take the net?"
+  },
+  "C3-21": {
+   "title": "Their net player moved — the line is open",
+   "scene": "Their net player moved to the middle to cut the ball off.",
+   "cue": "The left sideline where the net player stood is open.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Down the sideline they left",
+    "why": "The moment the net player moves, the sideline they left is the nearest open space.",
+    "caption": "Finished it down the open sideline"
+   },
+   "lo": {
+    "short": "Deep to the back player",
+    "why": "Safe, but you leave the net player's empty spot alone.",
+    "caption": "The rally goes on"
+   },
+   "hi": {
+    "short": "Straight at the net player, middle",
+    "why": "That's exactly where the net player just moved. It gets cut off.",
+    "caption": "Cut off in the middle"
+   },
+   "coach": "When their net player moves, go down the sideline they left.",
+   "next": "After a short angle?"
+  },
+  "C3-22": {
+   "title": "Getting back from a short angle",
+   "scene": "You chased a short angle and got it back from outside on the left.",
+   "cue": "Your partner has moved to the middle.",
+   "question": "Where do you go back to?",
+   "answer": {
+    "short": "Diagonally back to your left spot",
+    "why": "Your partner took the middle. Come back diagonally to the left you left open.",
+    "caption": "You covered the left again"
+   },
+   "lo": {
+    "short": "Just back off",
+    "why": "If you stay out there, the front left is open. You barely get there.",
+    "caption": "You barely reached it"
+   },
+   "hi": {
+    "short": "Straight to the middle",
+    "why": "Your partner is already in the middle. If you overlap, the whole left is open.",
+    "caption": "The left was open"
+   },
+   "coach": "When you're pulled wide, come back diagonally to your spot.",
+   "next": "What if you two are spread apart?"
+  },
+  "C3-23": {
+   "title": "Spread apart: who closes first?",
+   "scene": "You're both at the net but spread out to the sidelines.",
+   "cue": "The ball went to the opponent at back left.",
+   "question": "Who closes in first?",
+   "answer": {
+    "short": "Me first, to the middle",
+    "why": "With the ball on the left, the angles are left and middle. You close the middle first.",
+    "caption": "You closed the middle"
+   },
+   "lo": {
+    "short": "Wait for your partner to come",
+    "why": "Your partner has to guard the sideline. If you wait, the middle stays open.",
+    "caption": "Your partner barely gets it"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "Backing off while spread out makes the hole even bigger.",
+    "caption": "Beaten through the middle"
+   },
+   "coach": "Whoever is farther from the ball closes the middle first.",
+   "next": "Chapter 3 review"
+  },
+  "C3-24": {
+   "title": "Chapter 3 review — the next move at the net",
+   "scene": "Your partner's volley drove an opponent deep into the left corner.",
+   "cue": "The opponent is stretching, racket face open to the sky.",
+   "question": "How will the next ball come?",
+   "answer": {
+    "short": "A high lob",
+    "why": "When the racket face opens in the corner, it's usually a lob. Take a step back and wait.",
+    "caption": "You smashed the lob"
+   },
+   "lo": {
+    "short": "Hard at you",
+    "why": "They're too stretched to hit hard. Still, you can chase down a lob.",
+    "caption": "You chase it and barely get it"
+   },
+   "hi": {
+    "short": "Low through the middle",
+    "why": "They're set up to lob — if you close in, the space over your head opens.",
+    "caption": "It went over your head"
+   },
+   "coach": "When the racket face opens, wait for the lob.",
+   "next": "Chapter 4: when you're pushed"
+  }
+ }
+}

@@ -1,0 +1,557 @@
+{
+ "chapter": "C2",
+ "cards": {
+  "C2-01": {
+   "title": "Where do you serve?",
+   "scene": "You're serving from the right. Your partner is at the net on the left.",
+   "cue": "Your partner is in the middle of the box, eyeing the middle.",
+   "question": "Where do you serve?",
+   "answer": {
+    "short": "Deep down the T",
+    "why": "It gives the returner the narrowest angles. A return through the middle is your partner's to pick off.",
+    "caption": "Your partner picked it off"
+   },
+   "lo": {
+    "short": "Wide",
+    "why": "It pulls the returner out — but it opens up the return angles too.",
+    "caption": "The return angles opened up"
+   },
+   "hi": {
+    "short": "Short and slow, just to be safe",
+    "why": "A short serve just to get it in lets the returner step in and attack.",
+    "caption": "Too short — attacked"
+   },
+   "coach": "A serve down the T funnels the ball to your partner.",
+   "next": "After a wide serve, where does the return go?"
+  },
+  "C2-02": {
+   "title": "Wide serve: where's the return going?",
+   "scene": "Your partner hit a wide serve from the left.",
+   "cue": "The returner is being pulled wide.",
+   "question": "Where will the return go?",
+   "answer": {
+    "short": "Crosscourt, through the middle",
+    "why": "A stretched returner usually plays the safe crosscourt, and that ball passes through the middle.",
+    "caption": "You read it and picked it off"
+   },
+   "lo": {
+    "short": "A lob over your head",
+    "why": "It could happen. But backing off early throws away your chance to pick it off.",
+    "caption": "The crosscourt got past"
+   },
+   "hi": {
+    "short": "Down the line, beside you",
+    "why": "From that stretched spot, down the line rarely works. Guarding your alley opens the middle.",
+    "caption": "It slipped through the middle"
+   },
+   "coach": "A stretched returner's ball comes through the middle.",
+   "next": "After a body serve, do you poach?"
+  },
+  "C2-03": {
+   "title": "After a body serve: poach or not?",
+   "scene": "Your partner's serve jammed the returner.",
+   "cue": "The returner twists and gets the racket up.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Two steps to the middle",
+    "why": "Off a jamming serve, they're just trying to block it back. The floater comes through the middle.",
+    "caption": "You cut off the floater"
+   },
+   "lo": {
+    "short": "Wait where you are",
+    "why": "Safe, but you let the floater through the middle go by.",
+    "caption": "Your partner barely gets it"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "A blocked return is short and slow. If you back off, you can't reach the ball dropping in front.",
+    "caption": "It just dropped in front of you"
+   },
+   "coach": "After a jamming serve, it's time to poach.",
+   "next": "What if you can't poach?"
+  },
+  "C2-04": {
+   "title": "The fake poach",
+   "scene": "The returner keeps hitting easy crosscourt returns. No chance to poach.",
+   "cue": "This serve, too, the returner is waiting comfortably.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Show a half step to the middle",
+    "why": "If you fake a move, the returner is tempted to switch to down the line. Wait for that ball.",
+    "caption": "You caught the down-the-line"
+   },
+   "lo": {
+    "short": "Stand where you are",
+    "why": "Safe, but the returner keeps hitting comfortable crosscourts.",
+    "caption": "The easy crosscourts keep coming"
+   },
+   "hi": {
+    "short": "Poach early, all the way",
+    "why": "The returner sees everything. Leave early and they'll hit down the empty line.",
+    "caption": "Beaten down the empty line"
+   },
+   "coach": "If you can't poach, just show it.",
+   "next": "What if the ball went low?"
+  },
+  "C2-05": {
+   "title": "Punish the net player who always poaches",
+   "scene": "The opposing net player has poached three times in a row.",
+   "cue": "The net player is heading for the middle again.",
+   "question": "Where do you return it?",
+   "answer": {
+    "short": "Down the line they left open",
+    "why": "A net player who always goes middle leaves the line open. Show it once and they'll stop leaving.",
+    "caption": "Through the empty line"
+   },
+   "lo": {
+    "short": "Hard at the net player's feet",
+    "why": "Their feet are a good target, but a net player on the move can still block it.",
+    "caption": "The net player barely blocks it"
+   },
+   "hi": {
+    "short": "Crosscourt as usual",
+    "why": "That's exactly the lane the net player just ran into.",
+    "caption": "Cut off by the poach"
+   },
+   "coach": "A net player who keeps leaving gets one down the line.",
+   "next": "What if the net player changes position?"
+  },
+  "C2-06": {
+   "title": "Returning a big first serve",
+   "scene": "A fast first serve came to your backhand.",
+   "cue": "No time for a big swing.",
+   "question": "Where do you return it?",
+   "answer": {
+    "short": "Block it deep crosscourt",
+    "why": "Even a small block has pace on it. Sending it deep to the server keeps it away from the net player.",
+    "caption": "Blocked it back deep"
+   },
+   "lo": {
+    "short": "Lob over the net player",
+    "why": "It gets over. But lobbing a fast serve tends to fall short.",
+    "caption": "The lob was short"
+   },
+   "hi": {
+    "short": "Hard down the line",
+    "why": "Adding power to a fast ball sends it long. And the net is higher there.",
+    "caption": "It sailed long"
+   },
+   "coach": "Don't swing at a fast serve — block it.",
+   "next": "What if it's still too fast?"
+  },
+  "C2-07": {
+   "title": "A big first serve: move back to return?",
+   "scene": "The first serve is fast. You've already missed two.",
+   "cue": "The ball is past before your racket gets there.",
+   "question": "Where do you return from?",
+   "answer": {
+    "short": "A step or two back",
+    "why": "Against a fast serve, distance is time. Moving back gives you time to get your racket on it.",
+    "caption": "Got it back properly"
+   },
+   "lo": {
+    "short": "Stay on the baseline",
+    "why": "You can return it, but you'll be late and the ball floats.",
+    "caption": "Late — the ball floated"
+   },
+   "hi": {
+    "short": "A step forward",
+    "why": "That's your second-serve spot. Stepping into a fast serve makes it go by even faster.",
+    "caption": "Couldn't even touch it"
+   },
+   "coach": "Fast serves from further back, slow serves from further in.",
+   "next": "What about a second serve?"
+  },
+  "C2-08": {
+   "title": "Where to return a second serve",
+   "scene": "A short, slow second serve.",
+   "cue": "The opposing net player is still in the middle of the box.",
+   "question": "Where do you send it?",
+   "answer": {
+    "short": "Deep crosscourt",
+    "why": "Even on a chance ball, don't force it. Go deep, push the server back, and we're ahead.",
+    "caption": "Pushed the server back"
+   },
+   "lo": {
+    "short": "Deep between them",
+    "why": "A good shot, but with the net player standing there, it's within reach.",
+    "caption": "It was in the net player's reach"
+   },
+   "hi": {
+    "short": "Down the line",
+    "why": "The net player can reach it just by stretching. And the net is highest there.",
+    "caption": "The net player just reached out"
+   },
+   "coach": "The better the chance, the deeper crosscourt — then move in.",
+   "next": "You hit it deep — how far do you go?"
+  },
+  "C2-09": {
+   "title": "After the second-serve return: how far in?",
+   "scene": "Your return went deep into the server's corner.",
+   "cue": "The server got pushed behind the baseline.",
+   "question": "How far in do you go?",
+   "answer": {
+    "short": "Up to the service line",
+    "why": "A pushed-back server floats the ball. Stop at the service line and you can handle a floater or a lob.",
+    "caption": "You volleyed the floater"
+   },
+   "lo": {
+    "short": "Wait where you are",
+    "why": "Safe, but you let the moment slip while they're pushed back.",
+    "caption": "You let the chance go"
+   },
+   "hi": {
+    "short": "All the way to the net at once",
+    "why": "The ball arrives while you're still running, and the pushed server lobs over your head.",
+    "caption": "It went over your head"
+   },
+   "coach": "Once you've pushed them back, move up to the service line.",
+   "next": "Your first volley after moving in?"
+  },
+  "C2-10": {
+   "title": "Serve and volley: where do you stop?",
+   "scene": "You serve and run straight in toward the net.",
+   "cue": "The returner is starting the backswing.",
+   "question": "Where do you stop?",
+   "answer": {
+    "short": "Stop near the service line",
+    "why": "Pause as the returner hits (a split step). Then you can go after a ball either way.",
+    "caption": "You hit the first volley deep"
+   },
+   "lo": {
+    "short": "Stop after just a few steps",
+    "why": "Stopping is right. But you're too far back, so the ball bounces at your feet.",
+    "caption": "You barely dig it out"
+   },
+   "hi": {
+    "short": "Keep running to the net",
+    "why": "If the ball comes while you're running, you can't change direction. It goes past you.",
+    "caption": "It slipped past you"
+   },
+   "coach": "Stop when they hit, then move in again.",
+   "next": "What about from the returner's side?"
+  },
+  "C2-11": {
+   "title": "Your return went deep — move in?",
+   "scene": "Your return went deep. But the server had already backed up.",
+   "cue": "The server is set for a big swing.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Stay where you are",
+    "why": "It was deep, but the server was waiting comfortably. A hard ball is coming, so take it from the back.",
+    "caption": "You handled the hard ball"
+   },
+   "lo": {
+    "short": "Move in two or three steps",
+    "why": "That's no man's land. A deep ball bounces at your feet.",
+    "caption": "You barely handle the bounce"
+   },
+   "hi": {
+    "short": "Go all the way to the net",
+    "why": "A ball hit comfortably comes back fast and low. It drops at your feet while you're running.",
+    "caption": "It landed at your feet"
+   },
+   "coach": "Only move in when they're pushed back.",
+   "next": "Your first volley after moving in?"
+  },
+  "C2-12": {
+   "title": "A low return at your feet: where to?",
+   "scene": "The return came low and deep, right at your feet.",
+   "cue": "The opposing net player is waiting in the middle of the box.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Lift it deep crosscourt",
+    "why": "You have to hit up on a ball at your feet. Send it deep crosscourt, farthest from the net player.",
+    "caption": "You lifted it deep and held on"
+   },
+   "lo": {
+    "short": "Lob over the net player",
+    "why": "A good idea, but it's hard to lob deep off a ball at your feet.",
+    "caption": "The net player backs up and gets it"
+   },
+   "hi": {
+    "short": "Hard toward the net player",
+    "why": "Hitting hard from your feet makes the ball float — right at the net player's racket height.",
+    "caption": "The net player picked it off"
+   },
+   "coach": "From your feet: lift it high and deep.",
+   "next": "What if the return floats?"
+  },
+  "C2-13": {
+   "title": "A floated return: where to put it away?",
+   "scene": "The return floated high. Both opponents backed up.",
+   "cue": "They're side by side on the baseline.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Deep between them",
+    "why": "When both are back, the middle is the safest way to attack. They hesitate over who takes it.",
+    "caption": "It went through the middle"
+   },
+   "lo": {
+    "short": "Deep crosscourt",
+    "why": "Safe, but you turned a chance ball into an ordinary one.",
+    "caption": "It became an ordinary rally"
+   },
+   "hi": {
+    "short": "Hard into the sideline corner",
+    "why": "The better the chance, the bigger the target. The corner is small and easy to miss.",
+    "caption": "Went for the corner — out"
+   },
+   "coach": "When they're both back, go down the middle.",
+   "next": "Plan through the third ball"
+  },
+  "C2-14": {
+   "title": "You kept it low — one more step",
+   "scene": "Your volley landed at the feet of the returner coming in.",
+   "cue": "The returner bends and lifts the ball.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "One more step to the middle",
+    "why": "If you kept it low, the lifted ball is coming. Step in to the middle and finish it from above.",
+    "caption": "Finished it a step closer"
+   },
+   "lo": {
+    "short": "Wait where you are",
+    "why": "Not bad, but you take the floater from down low.",
+    "caption": "You just get it back over"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "A lifted ball is short and slow. Back off and it drops in front of you.",
+    "caption": "You couldn't reach the short ball"
+   },
+   "coach": "If you kept it low, take one more step in.",
+   "next": "What if we floated it?"
+  },
+  "C2-15": {
+   "title": "We floated it — what do you do?",
+   "scene": "Your partner's third ball floated high — but it's deep.",
+   "cue": "The returner is getting ready to hit at shoulder height.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Back off to the service line",
+    "why": "It's a deep floater, so no immediate smash. From the service line you can handle a hard ball.",
+    "caption": "You stepped back and blocked it"
+   },
+   "lo": {
+    "short": "All the way to the baseline",
+    "why": "Safe, but you went too far back. You give up the front to a short ball.",
+    "caption": "You barely reach the short ball"
+   },
+   "hi": {
+    "short": "Stay at the net",
+    "why": "Off a floater, the returner drives it hard at the net player. The closer you are, the harder it is.",
+    "caption": "Drilled at your feet"
+   },
+   "coach": "Against a deep floater, back off only to the service line.",
+   "next": "What if a lob goes over your head?"
+  },
+  "C2-16": {
+   "title": "Their net player poached",
+   "scene": "Your partner returned crosscourt.",
+   "cue": "The opposing net player charges the middle and cuts it off.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Close in to the middle",
+    "why": "A poached ball goes through the middle between you. Cover the middle first.",
+    "caption": "You blocked it and counterattacked"
+   },
+   "lo": {
+    "short": "Back off",
+    "why": "It buys time, but you can't reach a ball that drops short.",
+    "caption": "You barely scooped it up"
+   },
+   "hi": {
+    "short": "Stay and watch the ball",
+    "why": "Standing still and watching, you can't move for a ball at your feet. That's where the poach goes.",
+    "caption": "Drilled at your feet"
+   },
+   "coach": "When their net player moves, close in to the middle.",
+   "next": "What if you blocked the poach?"
+  },
+  "C2-17": {
+   "title": "You blocked the poach",
+   "scene": "The opposing net player poached, and the ball is coming to you.",
+   "cue": "The right side where the net player was is now empty.",
+   "question": "Where do you block it?",
+   "answer": {
+    "short": "To the side the net player left",
+    "why": "The poaching net player is in the middle. Nobody can get back to their spot.",
+    "caption": "Sent it back into the gap"
+   },
+   "lo": {
+    "short": "Deep to the server",
+    "why": "Safe, but you leave the net player's empty spot alone.",
+    "caption": "The rally goes on"
+   },
+   "hi": {
+    "short": "Straight back at the net player",
+    "why": "Send it to the net player's racket again and it gets cut off again.",
+    "caption": "Cut off again"
+   },
+   "coach": "Block a poach to the side the net player left.",
+   "next": "What if you face the I formation?"
+  },
+  "C2-18": {
+   "title": "First volley after the return",
+   "scene": "You returned and came up toward the service line. The server hits low.",
+   "cue": "The ball skims the net and comes at your feet.",
+   "question": "Where do you hit it from, and where to?",
+   "answer": {
+    "short": "From the service line, deep",
+    "why": "Stop at the service line and send the low ball deep. Then close in on the net.",
+    "caption": "Sent it deep, then closed in"
+   },
+   "lo": {
+    "short": "Back off",
+    "why": "Backing off is safe, but you throw away the chance the return gave you.",
+    "caption": "You missed the chance"
+   },
+   "hi": {
+    "short": "Run all the way to the net",
+    "why": "Hitting a low ball on the run makes it float — and their net player is waiting.",
+    "caption": "Hit by the floater"
+   },
+   "coach": "First volley: stop, and hit it deep.",
+   "next": "Now head to the net"
+  },
+  "C2-19": {
+   "title": "A lobbed return — the switch call",
+   "scene": "The return is a lob floating over your head. Not very deep.",
+   "cue": "It looks like it'll land near the service line.",
+   "question": "What do you do?",
+   "answer": {
+    "short": "Back up and smash it yourself",
+    "why": "The net player takes a short lob by backing up — faster than your partner running over.",
+    "caption": "You backed up and hit it"
+   },
+   "lo": {
+    "short": "Call 'Switch!' and cross",
+    "why": "Not wrong, but your partner has to run a long way for a short ball.",
+    "caption": "Your partner barely gets it back"
+   },
+   "hi": {
+    "short": "Stay and watch the ball",
+    "why": "If nobody calls it, you both freeze — and it drops between you.",
+    "caption": "You both froze"
+   },
+   "coach": "Short lob: you take it. Deep lob: switch.",
+   "next": "Your new spots after the switch?"
+  },
+  "C2-20": {
+   "title": "New spots after the switch: who goes where",
+   "scene": "After the switch, your partner's lob went deep over the opponents.",
+   "cue": "Both opponents are running back.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "A half step toward the middle",
+    "why": "The right is your side now. Closing toward the middle lets you cut off the ball coming back.",
+    "caption": "You finished the ball that came back"
+   },
+   "lo": {
+    "short": "Guard the right sideline",
+    "why": "The sideline angle is narrow. You'll be late on a ball through the middle.",
+    "caption": "Your partner covers for you"
+   },
+   "hi": {
+    "short": "Go back to your old left side",
+    "why": "Your partner is already on the left. The whole right is open.",
+    "caption": "The right was open"
+   },
+   "coach": "After a switch, your new spot is yours.",
+   "next": "Chapter 2 review"
+  },
+  "C2-21": {
+   "title": "Facing the Australian formation",
+   "scene": "The opposing net player is at the net on the same side as the server.",
+   "cue": "Their net player is right in your crosscourt lane.",
+   "question": "Where do you return it?",
+   "answer": {
+    "short": "Deep down the line",
+    "why": "Block the crosscourt and the line opens up. The server has to run.",
+    "caption": "Into the open line"
+   },
+   "lo": {
+    "short": "Deep down the middle",
+    "why": "The middle is between the net player and the server. Either one can reach it.",
+    "caption": "The server gets it back"
+   },
+   "hi": {
+    "short": "Crosscourt as usual",
+    "why": "The net player is standing right in that lane. It gets cut off.",
+    "caption": "Cut off by the net player"
+   },
+   "coach": "When they block the crosscourt, the line opens.",
+   "next": "What about the I formation?"
+  },
+  "C2-22": {
+   "title": "The I formation: where will they go?",
+   "scene": "The server is near the middle; the net player is crouched at the center of the net.",
+   "cue": "As the serve goes in, the net player stands up.",
+   "question": "Who do you watch now?",
+   "answer": {
+    "short": "The crouching net player",
+    "why": "In this formation, everything depends on which way the net player goes. Watch their first step.",
+    "caption": "You watched the net player and blocked it"
+   },
+   "lo": {
+    "short": "The server in the middle",
+    "why": "After serving, the server goes opposite the net player. The net player moves first.",
+    "caption": "A beat late"
+   },
+   "hi": {
+    "short": "Your partner, who hit it",
+    "why": "Watch only the ball and you miss the net player's move. The volley comes at your feet.",
+    "caption": "Drilled at your feet"
+   },
+   "coach": "Against the I formation, watch the crouching net player.",
+   "next": "Now we plan it ourselves"
+  },
+  "C2-23": {
+   "title": "Plan through the third ball",
+   "scene": "You served down the T. The returner takes it in the middle.",
+   "cue": "The returner is standing in the middle of the court.",
+   "question": "Where do you hit the third ball from?",
+   "answer": {
+    "short": "From toward the middle",
+    "why": "Returns off a T serve come through the middle. Be there early and hit it deep.",
+    "caption": "You sent the third ball deep"
+   },
+   "lo": {
+    "short": "Right where you served",
+    "why": "Not bad, but you're a step late on a return down the middle.",
+    "caption": "You run and barely hit it"
+   },
+   "hi": {
+    "short": "Move in after the serve",
+    "why": "Planning the third ball starts behind the baseline. Move in and the return lands at your feet.",
+    "caption": "It landed at your feet"
+   },
+   "coach": "Serve down the T, play the third ball from the middle.",
+   "next": "Chapter 2 review"
+  },
+  "C2-24": {
+   "title": "Chapter 2 review",
+   "scene": "Your partner's ball landed at the feet of an opponent coming forward.",
+   "cue": "The opponent bends and gets the racket under it.",
+   "question": "How will the next ball come?",
+   "answer": {
+    "short": "Floated, through the middle",
+    "why": "They have to lift a ball at their feet, so it floats slowly. You finish it in the middle.",
+    "caption": "You finished the floater"
+   },
+   "lo": {
+    "short": "Deep crosscourt",
+    "why": "It could. But leaving the floater to your partner lets the chance slip.",
+    "caption": "Your partner gets it back"
+   },
+   "hi": {
+    "short": "Hard down the line, beside you",
+    "why": "It's hard to drive a lifted ball down the line. Guard your side and the middle opens.",
+    "caption": "It went through the middle"
+   },
+   "coach": "If you hit it at their feet, wait for the floater.",
+   "next": "Chapter 3: to the net"
+  }
+ }
+}

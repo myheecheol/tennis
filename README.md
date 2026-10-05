@@ -7,9 +7,10 @@
 prompts/     기획서를 뽑는 프롬프트 체인 (STEP 0~7 + 원샷)
 reference/   프롬프트에 붙여 넣는 재료 (도메인·좌표계·예시·플랫폼)
 design/      ← 위 체인을 실행해서 나온 결과물
-data/        커리큘럼 인덱스 · 상황 카드 · 카메라 규격 (기계 검증 대상)
+data/        커리큘럼 인덱스 · 상황 카드 · 카메라 규격 (기계 검증 대상) · i18n/en/ — 카드 120장 영어 번역
 tools/       생성기 · 검증기 · 3D 코트 기하(court3d.py) · 웹 스모크 테스트 · 검증판 기록 받기(phase1/)
-web/         play.html — 검증판 게임 (카드 120장 · 닉네임 · 튜토리얼 · 오늘의 코트 · 복습 · 원 포인트 게임! · 실전 모드(츄어리) · 전술 부수 · 기록)
+web/         play.html — 검증판 게임 (카드 120장 · 닉네임 · 튜토리얼 · 오늘의 코트 · 복습 · 원 포인트 게임! · 실전 모드(츄어리) · 전술 부수 · 기록 · 한국어/English)
+             i18n/en.json — 영어판 화면 글 사전 (열쇠 = 한국어 원문)
              index.html — 설계 페이지 (카드 플레이어 · 프롬프트 체인) · src/ — 두 페이지가 같이 쓰는 코트 엔진
 site/        index.html — 같은 게임을 문서 뼈대째로 (GitHub Pages 로 올린다 · build.py 가 만든다)
 firebase/    firestore.rules — 공개 배포의 기록(Firestore) 권한: 참여자는 자기 문서만, 만든 사람은 모두 읽기
@@ -18,6 +19,7 @@ review/      외부 리뷰 묶음 — Gemini · ChatGPT · 코치에게 줄 카�
 
 **게임 해 보기** → <https://claude.ai/artifact/8UWWX27bebLhTStCb9W59p> (Phase 1 검증판 · 운영법은 `design/08-phase1.md`)
 · 공개 배포: <https://myheecheol.github.io/tennis/> (GitHub Pages + Firebase — `design/08-phase1.md` §4B)
+· **English**: 윗줄 ⚙ 설정에서 바꾸거나 <https://myheecheol.github.io/tennis/?lang=en> (`design/08-phase1.md` §1d)
 
 ---
 
@@ -34,6 +36,7 @@ review/      외부 리뷰 묶음 — Gemini · ChatGPT · 코치에게 줄 카�
 | STEP 7 검수 | `design/07-review.md` | ✅ 치명 3건 수정 |
 | Phase 1 제작 | `web/play.html` · `design/08-phase1.md` | ✅ 검증판 게임 · 기록 · 검증 지표 화면 |
 | 공개 배포 점검 | `design/10-launch-review.md` | ✅ 바로 고친 것 7 · 배포 전에 꼭 5 · 첫 주 보완 6 · 제안 5 |
+| 영어판 | `web/i18n/en.json` · `data/i18n/en/` · `tools/check_i18n.py` | ✅ 화면 글 250개 · 카드 120장 — ⚙ 설정에서 한국어 · English (PRD #30) · 원어민 감수 전 |
 | — | **코치 감수 / 30명 검증** | ⬜ **미착수 — 여기가 진짜 관문** (검증판으로 돌린다) |
 
 ```bash

@@ -8,6 +8,18 @@ var CAM,W,H,BCAM;
 var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function init(cam){CAM=cam;W=cam.stage.w;H=cam.stage.h;BCAM=broadcastCam();}
 
+/* 코트 위의 글자 — 한국어 · English (PRD #30). 결과 값(정답 · 차선 · 실수)과 판정(아웃 · 네트 · 풋폴트)은 데이터 값이라 그대로, 보일 때만 옮긴다 */
+var TX={
+  ko:{me:'나',partner:'짝',serve:'서브',lob:'로브',high:'높게',flat:'낮게',short:'짧게',mid:'중간',deep:'깊게',
+      win:'✓ 성공',meh:'△ 아쉬움',lose:'✕ 실패',ifBest:'정답이면 ',freeze:'⏸ 지금, 어떻게 할까요?',view:'중계 시점',meView:'내 시점',pic:' 코트 그림',
+      calls:{}},
+  en:{me:'Me',partner:'P',serve:'Serve',lob:'Lob',high:'High',flat:'Low',short:'Short',mid:'Mid',deep:'Deep',
+      win:'✓ Success',meh:'△ Almost',lose:'✕ Miss',ifBest:'Best answer: ',freeze:'⏸ Now — what do you do?',view:'broadcast view',meView:'my view',pic:' court picture',
+      calls:{'아웃':'Out','네트':'Net','풋폴트':'Foot fault'}}};
+var LX=TX.ko;
+function setLang(l){LX=TX[l]||TX.ko;}
+function txw(s,hw,lw){var w=0;for(var i=0;i<s.length;i++){var c=s.charCodeAt(i);w+=c>=0x1100?hw:lw;}return w;}   // 글자 폭 어림 — 한글은 넓고 영문은 좁다
+
 /* ═════════ 3D 코어 — tools/court3d.py 와 같은 식 ═════════ */
 var CW=10.97, CL=23.77, NETY=CL/2, SGL=4.115, SVC=6.40;
 var COLS={L:[0,1/3],C:[1/3,2/3],R:[2/3,1]};
@@ -109,10 +121,10 @@ function flight(ball,opt){
   return {pts:pts,bounce:bi};
 }
 function depthTag(ball){
-  if(ball.arc==='serve'||ball.arc==='serve2')return '서브';
-  var h={lob:'로브',high:'높게',flat:'낮게'}[ball.arc]||'';
+  if(ball.arc==='serve'||ball.arc==='serve2')return LX.serve;
+  var h={lob:LX.lob,high:LX.high,flat:LX.flat}[ball.arc]||'';
   if(!ball.bounce)return h;
-  var d=Math.abs(world(ball.bounce)[1]-NETY),w=d<SVC?'짧게':(d<9.5?'중간':'깊게');
+  var d=Math.abs(world(ball.bounce)[1]-NETY),w=d<SVC?LX.short:(d<9.5?LX.mid:LX.deep);
   return h?w+' · '+h:w;
 }
 
@@ -161,7 +173,7 @@ function ballArt(cam,fl,col,tag,refPpm,avoid,opt){
   if(tag){
     var at=fl.bounce>=0?cam.p(P[fl.bounce]):pe;
     if(at){
-      var tw=tag.length*11+14,best=null,bs=-1e9;
+      var tw=Math.round(txw(tag,11,6.6))+14,best=null,bs=-1e9;
       [[12,-26],[12,10],[-tw-12,-26],[-tw-12,10],[-tw/2,16],[-tw/2,-36]].forEach(function(o){
         var x=clamp(at[0]+o[0],4,W-tw-4),y=clamp(at[1]+o[1],48,H-24),cx=x+tw/2,cy=y+9.5,d=1e9;
         (avoid||[]).forEach(function(p){d=Math.min(d,Math.max(Math.abs(p[0]-cx)-tw/2,Math.abs(p[1]-cy)-9.5));});
@@ -191,7 +203,7 @@ function pinArt(cam,who,xy,ghost,flat){
     var gl2=clipNear(cam,circle3(g,.85,0,24)),in2=clipNear(cam,circle3(g,.42,0,20)),rr=clamp(cam.ppm(g)*.26,11,16);
     return (gl2.length>2?'<polygon points="'+ptsStr(gl2)+'" fill="#E4FF3D" fill-opacity="'+(ghost?.2:.55)+'" stroke="#fff" stroke-opacity="'+(ghost?.5:1)+'" stroke-width="1.8"/>':'')
       +(in2.length>2?'<polygon points="'+ptsStr(in2)+'" fill="none" stroke="#E4FF3D" stroke-opacity="'+(ghost?.4:1)+'" stroke-width="2.4"/>':'')
-      +(ghost?'':'<circle cx="'+ft[0].toFixed(1)+'" cy="'+ft[1].toFixed(1)+'" r="'+rr.toFixed(1)+'" fill="#E4FF3D" stroke="#14230D" stroke-width="1.8"/><text x="'+ft[0].toFixed(1)+'" y="'+(ft[1]+rr*.36).toFixed(1)+'" text-anchor="middle" font-size="'+(rr*1.02).toFixed(1)+'" font-weight="800" fill="#14230D">나</text>');
+      +(ghost?'':'<circle cx="'+ft[0].toFixed(1)+'" cy="'+ft[1].toFixed(1)+'" r="'+rr.toFixed(1)+'" fill="#E4FF3D" stroke="#14230D" stroke-width="1.8"/><text x="'+ft[0].toFixed(1)+'" y="'+(ft[1]+rr*.36).toFixed(1)+'" text-anchor="middle" font-size="'+(rr*(LX.me.length>1?.78:1.02)).toFixed(1)+'" font-weight="800" fill="#14230D">'+LX.me+'</text>');
   }
   if(!ft||!hp)return '';
   var ppm=cam.ppm(hd),r=clamp(ppm*.3,10,21),bw=clamp(ppm*.34,5,r*.62),s='';
@@ -203,7 +215,8 @@ function pinArt(cam,who,xy,ghost,flat){
   if(who==='me')s+='<circle cx="'+hp[0].toFixed(1)+'" cy="'+hp[1].toFixed(1)+'" r="'+(r+2.8).toFixed(1)+'" fill="#fff"/>';
   if(st.shape==='o')s+='<circle cx="'+hp[0].toFixed(1)+'" cy="'+hp[1].toFixed(1)+'" r="'+r.toFixed(1)+'" fill="'+st.head+'" stroke="#14230D" stroke-width="1.8"/>';
   else s+='<rect x="'+(hp[0]-r).toFixed(1)+'" y="'+(hp[1]-r).toFixed(1)+'" width="'+(2*r).toFixed(1)+'" height="'+(2*r).toFixed(1)+'" rx="'+(r*.34).toFixed(1)+'" fill="'+st.head+'" stroke="#14230D" stroke-width="1.8"/>';
-  s+='<text x="'+hp[0].toFixed(1)+'" y="'+(hp[1]+r*.36).toFixed(1)+'" text-anchor="middle" font-size="'+(r*1.02).toFixed(1)+'" font-weight="800" fill="'+st.ink+'">'+st.label+'</text>';
+  var lb=who==='me'?LX.me:who==='partner'?LX.partner:st.label;   // 나 · 짝 은 말에 따라, 상대는 1 · 2
+  s+='<text x="'+hp[0].toFixed(1)+'" y="'+(hp[1]+r*.36).toFixed(1)+'" text-anchor="middle" font-size="'+(r*(lb.length>1?.78:1.02)).toFixed(1)+'" font-weight="800" fill="'+st.ink+'">'+lb+'</text>';
   return s;
 }
 function courtArt(cam,isMe){
@@ -420,7 +433,7 @@ function ballState(T,t,pos){
 }
 
 /* ═════════ 그리기 ═════════ */
-function callTag(p,text){var tw=text.length*12+16,x=clamp(p[0]-tw/2,4,W-tw-4),y=clamp(p[1]-30,48,H-24);
+function callTag(p,text){text=LX.calls[text]||text;var tw=Math.round(txw(text,12,7.4))+16,x=clamp(p[0]-tw/2,4,W-tw-4),y=clamp(p[1]-30,48,H-24);
   return '<g><rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+tw+'" height="20" rx="10" fill="#C0442B"/><text x="'+(x+tw/2).toFixed(1)+'" y="'+(y+14).toFixed(1)+'" text-anchor="middle" font-size="12" font-weight="800" fill="#fff">'+text+'</text></g>';}
 function staticLayer(c,cam,isMe,withZones){
   var s=courtArt(cam,isMe);
@@ -483,8 +496,7 @@ function drawFrame(T,t,ended,ctx){
 /* ═════════ 재생 — 무대 하나 ═════════ */
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function camKey(p){return p[0].toFixed(3)+','+p[1].toFixed(3);}
-var SAY={정답:['win','✓ 성공'],차선:['meh','△ 아쉬움'],실수:['lose','✕ 실패']};
-var FREEZE_SAY='⏸ 지금, 어떻게 할까요?';
+var SAY={정답:['win','win'],차선:['meh','meh'],실수:['lose','lose']};   // [배지 색, 글자 열쇠]
 
 function Stage(svg,sayEl){this.svg=svg;this.sayEl=sayEl;this.anim=null;this.finishNow=null;this.bg=null;this.dyn=null;}
 Stage.prototype.stop=function(){if(this.anim)cancelAnimationFrame(this.anim);this.anim=null;this.finishNow=null;};
@@ -520,13 +532,13 @@ Stage.prototype.show=function(c,o,done){
   this.stop();this.sayEl.hidden=true;
   this.svg.innerHTML='<g class="bg">'+staticLayer(c,cam,isMe,pick<0)+'</g><g class="dyn" pointer-events="none"></g>'+(pick<0?chipsLayer(c,cam,isMe):'');
   this.bg=this.svg.querySelector('.bg');this.dyn=this.svg.querySelector('.dyn');
-  this.svg.setAttribute('aria-label',c.title+' — '+(isMe?'내 시점':'중계 시점')+' 코트 그림');
+  this.svg.setAttribute('aria-label',c.title+' — '+(isMe?LX.meView:LX.view)+LX.pic);
   var corZone=optsOf(c)[correctIdx(c)].zone,ctx={c:c,cam:cam,isMe:isMe,correct:corZone,follow:isMe&&pick>=0,camKey:camKey(c.setup.me.xy)};
   var TI=buildIntro(c);
   if(pick<0){
     if(o.mode==='pose'){this.paint(o.from?buildLink(c,o.from):TI,0,false,ctx);return;}   // o.from — 앞 카드가 끝난 모습 그대로 제목 뒤에 선다
     var fz={c:c,cam:cam,isMe:isMe,freeze:true};
-    var freeze=function(){self.paint(TI,TI.dur,true,fz);if(o.freezeSay!==false)self.say('',o.freezeSay||FREEZE_SAY);if(o.onFreeze)o.onFreeze();};
+    var freeze=function(){self.paint(TI,TI.dur,true,fz);if(o.freezeSay!==false)self.say('',o.freezeSay||LX.freeze);if(o.onFreeze)o.onFreeze();};
     if(o.mode==='still')freeze();
     else if(o.mode==='link'&&o.from)this.run(buildLink(c,o.from),ctx,freeze);   // 앞 카드에서 이어서
     else this.run(TI,ctx,freeze);
@@ -534,14 +546,14 @@ Stage.prototype.show=function(c,o,done){
   }
   var si=o.shown!=null?o.shown:pick,TO=buildOutcome(c,si);
   this.lastEnd=endOf(TO);   // 지금 코트에 보이는 장면의 끝 모습 — 다음 카드가 여기서 이어진다(정답 장면을 보고 있었다면 그 장면에서)
-  var end=function(){var s=SAY[TO.res.v];self.say(s[0],(si!==pick?'정답이면 ':'')+s[1],TO.res.caption);if(done)done(TO.res);};
+  var end=function(){var s=SAY[TO.res.v];self.say(s[0],(si!==pick?LX.ifBest:'')+LX[s[1]],TO.res.caption);if(done)done(TO.res);};
   if(o.mode==='still'){this.paint(TO,TO.dur,true,ctx);end();return;}
   if(o.mode==='replay'){this.run(TI,ctx,function(){self.run(TO,ctx,end);});return;}
   this.run(TO,ctx,end);
 };
 
 return {init:init,Stage:Stage,KEYS:KEYS,optsOf:optsOf,correctIdx:correctIdx,esc:esc,clamp:clamp,
-        linkKind:linkKind,introEnd:introEnd,
+        linkKind:linkKind,introEnd:introEnd,setLang:setLang,
         _tl:{intro:buildIntro,outcome:buildOutcome,link:buildLink,end:endOf,pos:posAt},   // 시험용 — 공의 길 · 이어지기 검사(tools/web_smoke.py)
         reduced:function(){return REDUCED;}};
 })();

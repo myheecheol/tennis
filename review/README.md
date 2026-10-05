@@ -19,10 +19,11 @@
 | `web/play.template.html` | 게임 화면과 규칙 — 닉네임 · 튜토리얼 · 오늘의 코트 · 복습 · 실전 모드 · 원 포인트 게임 · 기록 · 검증 지표 |
 | `web/src/court.js` · `court.css` | 코트 엔진 — 3D 코트 · 공 궤적 · 고르면 공과 사람이 움직이는 결과 재생 · 카드 사이 이어지기 |
 | `data/cards/c1~c5.json` | 상황 카드 120장 (5챕터 × 24) — 읽기용은 `review/cards.md` |
+| `web/i18n/en.json` · `data/i18n/en/c1~c5.json` | 영어판 — 화면 글 사전(열쇠 = 한국어 원문) · 카드 120장 번역(`answer` 정답 · `lo` 차선 · `hi` 실수). 설정 ⚙ 에서 바꾼다 |
 | `data/chains.json` · `cards-index.json` · `cameras.json` | 이어지는 카드 짝 · 커리큘럼 목차 · 카메라 규격 |
 | `design/*.md` | 기획서(PRD) · 게임 설계 · Phase 1 운영 · 내용 감수 · 배포 점검 |
 | `reference/*.md` | 복식 전술 원리(P-01~05) · 코트 좌표 규격 · 카드 예시 |
-| `tools/` | 카드 검증기 · 빌드 · 웹 테스트(헤드리스 브라우저로 63가지 흐름) |
+| `tools/` | 카드 검증기 · 영어판 검사 · 빌드 · 웹 테스트(헤드리스 브라우저로 83가지 흐름) |
 | `firebase/firestore.rules` | 기록 권한 — 참여자는 자기 문서만, 만든 사람은 모두 읽기 |
 
 ---
@@ -93,6 +94,29 @@ play.template.html = 화면과 게임 규칙, court.js = SVG 로 그리는 3D �
 3) 저사양 안드로이드 성능 — 애니메이션 프레임마다 SVG 를 다시 그린다 4) 접근성 5) iOS 사파리 · 카카오톡 인앱 브라우저 문제.
 
 결과는 표로: 심각도 · 파일과 함수(또는 줄) · 문제 · 재현 방법 · 고칠 코드. 추측이면 추측이라고 써 줘.
+```
+
+## D. 영어판 번역 감수
+
+**주는 것** — [`data/i18n/en/c1.json`](https://raw.githubusercontent.com/myheecheol/tennis/HEAD/data/i18n/en/c1.json) ~ `c5.json` 과 `review/cards.md`(한국어 원문).
+화면 글은 [`web/i18n/en.json`](https://raw.githubusercontent.com/myheecheol/tennis/HEAD/web/i18n/en.json). 영어 화면을 보려면 게임 주소 끝에 `?lang=en`
+
+**붙여 넣을 말**
+
+```text
+You are a doubles tennis coach who writes clear English for beginners (recreational club players, mostly on phones).
+The attached JSON files are the English version of 120 tactics cards from a Korean doubles-tactics game; cards.md is the Korean original.
+Each card: title, scene, cue, question, three options — answer (best), lo (second best), hi (mistake) — each with short / why / caption,
+plus a one-line coach tip ("coach") and a "next" teaser. Option "short" texts sit on small buttons (keep them under ~34 characters).
+
+Check each card:
+1) Does the English say the same thing as the Korean (no meaning lost or added)?
+2) Is it natural English that a US/UK club player would actually say (poach, lob, net player, down the line, crosscourt, etc.)?
+3) Is the tactic correct for recreational doubles?
+4) Are the three options clearly different, and is "lo" (second best) really better than "hi" (mistake)?
+
+Only list cards with problems, as a table: card ID · field (e.g. answer.why) · problem · suggested English.
+Mark low-confidence items as "check".
 ```
 
 > GitHub 연결이나 '코드 가져오기' 기능이 있는 AI 라면 저장소 주소를 통째로 주고

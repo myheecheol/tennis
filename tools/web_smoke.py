@@ -42,6 +42,7 @@ PRE = ('<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" c
        'window.cancelAnimationFrame=function(i){clearTimeout(i);};'
        'var _mm=window.matchMedia;window.matchMedia=function(q){return q.indexOf("reduced-motion")>=0?'
        '{matches:{REDUCED},addListener:function(){},addEventListener:function(){}}:_mm.call(window,q);};'
+       'Object.defineProperty(Navigator.prototype,"language",{configurable:true,get:function(){return window.__NAVLANG||"ko-KR";}});'
        'window.__ERR=[];window.addEventListener("error",function(e){window.__ERR.push(String(e.message));});'
        'Math.random=(function(){var s=20261003;return function(){s=s*16807%2147483647;return (s-1)/2147483646;};})();'
        '</script>{MOCK}</head><body>')
@@ -63,6 +64,13 @@ Court.Stage.prototype.show=function(c,o){
 function linkStat(){var mid=LINKS.filter(function(x){return x.ball;}),s={n:LINKS.length,mid:mid.length,me:0,pa:0,op:0,max:0,replay:0,same:0};
   mid.forEach(function(x){s.me+=x.me/mid.length;s.pa+=x.pa/mid.length;s.op+=x.op/mid.length;if(x.replay)s.replay++;if(x.kind==='same')s.same++;});
   LINKS.forEach(function(x){s.max=Math.max(s.max,x.me,x.pa);});return s;}
+function han(){var H=/[\u1100-\u11ff\u3130-\u318f\uac00-\ud7a3]/,out=[];
+  function add(s,w){if(s&&H.test(s)&&out.length<10)out.push(w+': '+s.trim().replace(/\s+/g,' ').slice(0,50));}
+  var tw=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;
+  while((n=tw.nextNode())){var p=n.parentElement;if(!p||!H.test(n.nodeValue)||p.closest('script,style,[lang=ko]')||!p.getClientRects().length)continue;add(n.nodeValue,p.tagName.toLowerCase());}
+  [].forEach.call(document.querySelectorAll('[aria-label],[placeholder],[alt],[title]'),function(el){if(el.closest('[lang=ko]')||!el.getClientRects().length)return;
+    ['aria-label','placeholder','alt','title'].forEach(function(a){add(el.getAttribute(a),a);});});
+  add(document.title,'title');return out;}
 function vis(){var r=[];['home','play','done','chapter','stats','match','hello'].forEach(function(n){var el=q('#s-'+n);if(el&&!el.hidden)r.push(n);});return r.join(',');}
 function snap(tag){var say=q('#p-say'),t=q('#toast');
   var cap=q('#gs-cap');
@@ -78,11 +86,13 @@ function snap(tag){var say=q('#p-say'),t=q('#toast');
     gst:document.querySelectorAll('script[src*="gstatic"]').length,people:q('#st-people')&&!q('#s-stats').hidden?q('#st-people').textContent:null,
     npeople:q('#s-stats').hidden?null:((q('#st-body').textContent.match(/참여자 (\d+)명/)||[])[1]||null),errs:q('#s-stats').hidden?null:(q('#st-body').textContent.match(/기기 오류 \d+/)||[null])[0],dcards:q('#d-cards').hidden?null:q('#d-cards').textContent.slice(0,120),dhead:q('#s-done').hidden?null:q('#d-head').textContent,dxp:q('#s-done').hidden?null:q('#d-xp').textContent,hc:q('#d-hc').hidden?null:q('#d-hc').textContent,reps:q('.rlist')?q('.rlist').textContent:null,
     lvs:[].map.call(document.querySelectorAll('#ml-lv [aria-pressed=true]'),function(b){return b.getAttribute('data-lv');}).join(','),
-    title:q('#gs-name').textContent,scene:q('#gs-scene-t').textContent,dock:q('#gs-dock').textContent.slice(0,90),
+    title:q('#gs-name').textContent,scene:q('#gs-scene-t').textContent,dock:q('#gs-dock').textContent.slice(0,160),
     head:q('#t-head').textContent,say:say.hidden?null:say.textContent,prog:q('#p-n').textContent,rank:q('#bar-rank-t').textContent,
     rankup:q('#d-rank').hidden?null:q('#d-rank').textContent,tally:q('#s-done').hidden?null:q('#d-tally').textContent,
     wait:!q('#c-wait').hidden,owner:!q('#h-stats').hidden,stats:q('#s-stats').hidden?null:q('#st-body').textContent.slice(0,200),
-    toast:t.hidden?null:t.textContent,writes:window.__writes||0,sent:window.__SENT||null,err:window.__ERR.slice()});
+    toast:t.hidden?null:t.textContent,writes:window.__writes||0,sent:window.__SENT||null,err:window.__ERR.slice(),
+    lang:document.documentElement.lang,han:han(),mylang:window.__STORE&&window.__STORE['players/u_me']?window.__STORE['players/u_me'].lang||null:null,setopen:!q('#set').hidden,dtitle:document.title,
+    pressed:[].map.call(document.querySelectorAll('#set-lang [aria-pressed=true]'),function(b){return b.getAttribute('data-lang');}).join(',')});
   document.body.setAttribute('data-m',JSON.stringify(LOG));}
 function click(sel){var el=q(sel);if(!el){window.__ERR.push('없음 '+sel);return;}el.dispatchEvent(new MouseEvent('click',{bubbles:true}));}
 function phase(){return q('#gs').getAttribute('data-phase');}
@@ -164,7 +174,7 @@ def run(name, page, budget=20000):
     return json.loads(html.unescape(m.group(1))) if m else None
 
 
-def game(name, steps, state=None, mock="", config=None, budget=20000, motion=False, cfg=None, hash=""):
+def game(name, steps, state=None, mock="", config=None, budget=20000, motion=False, cfg=None, hash="", navlang=""):
     page = (WEB / "play.html").read_text(encoding="utf-8")
     if config:
         page = page.replace('"endpoint": ""', '"endpoint": "%s"' % config)
@@ -177,6 +187,8 @@ def game(name, steps, state=None, mock="", config=None, budget=20000, motion=Fal
           if state else 'try{localStorage.removeItem("dmb-game-v1")}catch(e){}')
     if hash:
         st += "history.replaceState(null,'','%s');" % hash
+    if navlang:   # 브라우저 말 — 기본은 ko-KR (PRE)
+        st += "window.__NAVLANG='%s';" % navlang
     pre = PRE.replace("{REDUCED}", "false" if motion else "true")
     return run(name, pre.replace("{STATE}", st).replace("{MOCK}", mock) + page
                + GAME_PROBE.replace("__STEPS__", json.dumps(steps, ensure_ascii=False)), budget)
@@ -423,12 +435,17 @@ def main():
     head = site[:site.index("<body>")]
     probe = ('<script>setTimeout(function(){var v=document.querySelector("meta[name=viewport]");document.body.setAttribute("data-m",JSON.stringify([{tag:"site",'
              'mode:document.compatMode,title:document.title,vp:v?v.content:"",cs:document.characterSet,hello:!document.querySelector("#s-hello").hidden}]));},900);</script>')
-    page = site.replace("<head>\n", "<head>\n<script>try{localStorage.removeItem('dmb-game-v1')}catch(e){}</script>\n", 1)
+    nav = 'Object.defineProperty(Navigator.prototype,"language",{configurable:true,get:function(){return "%s";}});'
+    page = site.replace("<head>\n", "<head>\n<script>try{localStorage.removeItem('dmb-game-v1')}catch(e){}" + nav % "ko-KR" + "</script>\n", 1)
     out = run("site", page.replace("</body>", probe + "</body>"), 8000)
     o = (out or [{}])[0]
+    page = site.replace("<head>\n", "<head>\n<script>try{localStorage.removeItem('dmb-game-v1')}catch(e){}" + nav % "en-US" + "</script>\n", 1)
+    oe = (run("site-en", page.replace("</body>", probe.replace("title:document.title", "title:document.title,lang:document.documentElement.lang") + "</body>"), 8000) or [{}])[0]
     check("정적 호스팅용 페이지 — 표준 모드 · UTF-8 · viewport · 미리보기 글", site.startswith("<!doctype html>") and site.count("<body>") == 1
           and "<title>" in head and 'property="og:title"' in head and o.get("mode") == "CSS1Compat" and o.get("cs") == "UTF-8"
           and "width=device-width" in o.get("vp", "") and o.get("title") == "복식 무브" and o.get("hello"), o)
+    check("정적 호스팅용 페이지 — 영어 기기에서는 처음부터 영어 (제목 · lang)", oe.get("title") == "Doubles Move" and oe.get("lang") == "en"
+          and oe.get("hello"), oe)
 
     # 6c) Firebase (GitHub Pages 판, PRD #29) — 가짜 SDK 로. 익명 참여자는 자기 문서만, #owner 에서 Google 로그인하면 검증 지표
     log = game("fb", [[400, "g.snap('f0')"], [150, "g.opt(0)"], [400, "g.snap('f1')"]], NEWBIE, mock=FB_MOCK, cfg=FB_CFG)
@@ -453,6 +470,83 @@ def main():
     n = last(log, "n")
     check("Firebase 에 못 닿아도 게임은 그대로 — 오류 없이 이 브라우저에만 남는다", n and n["gst"] >= 1 and n["phase"] == "verdict"
           and n["sheet"] and not n["err"], n)
+
+    # 8) 영어판 (PRD #30) — 설정 ⚙ 에서 말을 바꾸면 화면 · 카드 · 코트 그림 글 · 읽어 주는 이름까지 영어. 보이는 곳에 한글이 남으면 실패
+    def en_ok(desc, x, ok=True):
+        check(desc, x and ok and not x["han"] and not x["err"] and x["lang"] == "en", x and (x["han"], x["err"], x["lang"]))
+    EN_CARD = {k: v for f in sorted((ROOT / "data" / "i18n" / "en").glob("c*.json"))
+               for k, v in json.loads(f.read_text(encoding="utf-8"))["cards"].items()}
+    st = state([(cid, "정답", None) for cid in IDS[:5]])
+    st["nick"] = "Tester"
+    log = game("en", [[300, "g.snap('k0')"], [150, "g.click('#b-set')"], [150, "g.snap('sopen')"],
+                      [150, "g.click('[data-act=lang][data-lang=en]')"], [150, "g.snap('set2')"],
+                      [150, "g.click('[data-act=settings-close]')"], [150, "g.snap('home')"],
+                      [150, "g.click('#t-cta')"], [150, "g.snap('title')"], [150, "g.ask()"], [150, "g.snap('ask')"],
+                      [150, "g.pick('차선')"], [150, "g.snap('res')"], [150, "g.click('[data-act=explain]')"], [150, "g.snap('sheet')"],
+                      [150, "g.click('[data-act=next]')"]] + NEXT * 3 +
+               [[120, "g.pick('실수')"], [120, "g.tap()"], [120, "g.click('[data-act=finish]')"], [150, "g.snap('done')"],
+                [150, "g.click('[data-act=home]')"], [150, "g.click('[data-act=chapter][data-ch=C1]')"], [150, "g.snap('chap')"],
+                [150, "g.click('[data-act=home]')"], [150, "g.click('[data-act=stats]')"], [400, "g.snap('stats')"],
+                [150, "g.click('[data-act=home]')"], [150, "g.snap('home2')"]], st, mock=DB_MOCK)
+    k0, se, s2, h, ti, ak, rs, sh, d, ch, sx, h2 = (last(log, k) for k in ("k0", "sopen", "set2", "home", "title", "ask", "res", "sheet",
+                                                                          "done", "chap", "stats", "home2"))
+    check("영어판 — 한국어 기기는 한국어로 시작 · ⚙ 설정을 누르면 언어 고르기(한국어 눌림)", k0 and k0["lang"] == "ko" and "새 카드" in k0["head"]
+          and se and se["setopen"] and se["pressed"] == "ko", (k0, se))
+    en_ok("영어판 — English 를 누르면 설정 창부터 바로 영어 · English 눌림", s2, s2 and s2["setopen"] and s2["pressed"] == "en"
+          and s2["dtitle"] == "Doubles Move")
+    en_ok("영어판 — 홈: 'new cards' · 부수 Rookie · 닉네임 그대로", h, h and not h["setopen"] and "new cards" in h["head"]
+          and h["rank"] == "Rookie" and h["nick"] == "Tester")
+    en_ok("영어판 — 카드 제목 · 질문 · 보기 · 코트 그림 글이 영어", ak, ti and ti["count"] == "1 / 5" and ak and ak["phase"] == "ask"
+          and ak["cap"] and not ti["han"])
+    en_ok("영어판 — 결과 배지 △ Almost · 해설 시트도 영어", sh, rs and (rs["say"] or "").startswith("△ Almost") and not rs["han"]
+          and sh and sh["sheet"])
+    en_ok("영어판 — 한 판 결과 Success 3 · Almost 1 · Miss 1", d, d and d["screen"] == "done" and "Success 3" in (d["tally"] or "")
+          and "Miss 1" in (d["tally"] or ""))
+    en_ok("영어판 — 챕터 화면", ch, ch and ch["screen"] == "chapter")
+    en_ok("영어판 — 검증 지표(만든 사람) · 신고 이유도 영어로 · 참여자 목록에 EN 표시", sx, sx and sx["screen"] == "stats" and sx["stats"]
+          and sx["reps"] and "confusing" in sx["reps"].lower() and "EN" in (sx["people"] or ""))
+    en_ok("영어판 — 저장 문서에 고른 말(lang: en)이 남는다", h2, h2 and h2["screen"] == "home" and k0["mylang"] == "ko" and h2["mylang"] == "en")
+
+    # 처음 온 사람이 ?lang=en 으로 — 닉네임 · 튜토리얼 · 실전(Chewry)까지 영어
+    LOSE = "for(var k=0;k<40;k++){if(!g.q('#s-done').hidden)break;g.pick('실수');g.next();}"
+    log = game("en-new", [[200, "g.snap('hl')"], [150, "g.nick('Tester')"], [150, "g.snap('t0')"], [150, "g.ask()"], [150, "g.snap('ask')"],
+                          [150, "g.pick()"], [150, "g.snap('res')"], [150, "g.tap()"], [150, "g.snap('taste')"],
+                          [150, "g.click('[data-act=taste-home]')"], [150, "g.snap('main')"], [150, "g.click('[data-act=match-open]')"],
+                          [150, "g.snap('lobby')"], [150, "g.click('[data-act=match-start]')"], [150, "g.snap('mask')"],
+                          [150, "g.pick('차선')"], [150, "g.snap('edge')"], [150, LOSE], [200, "g.snap('lost')"],
+                          [150, "g.click('[data-act=home]')"], [150, "g.snap('h1')"]], hash="?lang=en")
+    hl, t0, ak, rs, ta, mn, lb, ma, ed, ls, h1 = (last(log, k) for k in ("hl", "t0", "ask", "res", "taste", "main", "lobby", "mask",
+                                                                         "edge", "lost", "h1"))
+    en_ok("영어판 — 주소 ?lang=en 으로 오면 닉네임부터 영어 · 'Start tutorial →'", hl, hl and hl["screen"] == "hello"
+          and "Nice to meet you" in (hl["hl"] or "") and "Start tutorial →" in (hl["hl"] or ""))
+    en_ok("영어판 — 튜토리얼 제목 · 'Tutorial 1/4'", t0, t0 and t0["screen"] == "play" and EN_CARD["C1-24"]["title"] in t0["title"]
+          and t0["tapt"].startswith("Tutorial 1/4"))
+    en_ok("영어판 — 튜토리얼 질문 · 결과 ✓ Success", rs, ak and EN_CARD["C1-24"]["question"] in (ak["cap"] or "") and not ak["han"]
+          and (rs["say"] or "").startswith("✓ Success") and "Tutorial 4/4" in rs["dock"])
+    en_ok("영어판 — 튜토리얼 끝 → 메인 화면", mn, ta and not ta["han"] and "That's the tutorial, Tester!" in (ta["tut"] or "")
+          and mn and mn["screen"] == "home" and "main screen" in (mn["toast"] or ""))
+    en_ok("영어판 — 실전 로비 · 경기 — 점수판에 Chewry", ma, lb and not lb["han"] and lb["screen"] == "match" and ma
+          and ma["phase"] == "ask" and ma["score"] == "Tester 0, Chewry 0")
+    en_ok("영어판 — 랠리 계속 · Chewry 가 한 발 앞서요", ed, ed and "Chewry is a step ahead" in ed["dock"])
+    en_ok("영어판 — 경기 결과 'Tester, you lost to Chewry' · 홈 전적", h1, ls and not ls["han"] and ls["dhead"] == "Tester, you lost to Chewry"
+          and h1 and h1["mrec"] == "0W 1L")
+
+    # 원 포인트 게임 · 영어 기기(navigator.language) · 다시 한국어로
+    st = state([(cid, "정답", None) for cid in ("C2-08", "C3-09")])
+    st["nick"], st["lang"] = "Tester", "en"
+    log = game("en-chain", [[150, "g.click('[data-act=chain-start]')"], [150, "g.pick()"], [150, "g.click('[data-act=explain]')"],
+                            [150, "g.snap('v1')"], [150, "g.click('[data-act=chain-next]')"], [150, "g.snap('k2')"],
+                            [150, "g.click('#b-x')"], [150, "g.click('#b-set')"], [150, "g.click('[data-act=lang][data-lang=ko]')"],
+                            [150, "g.snap('ko')"], [150, "g.click('[data-act=settings-close]')"], [150, "g.click('[data-act=chain-start]')"],
+                            [150, "g.snap('kc')"]], st)
+    v1, k2, ko, kc = (last(log, k) for k in ("v1", "k2", "ko", "kc"))
+    en_ok("영어판 — 원 포인트 게임: 'Second move →' · 앞 수에서 이어지는 영어 카드", k2, v1 and not v1["han"]
+          and "Second move →" in v1["dock"] and k2 and k2["bridge"] == "Continues from the last move" and k2["title"] == EN_CARD[k2["id"]]["title"])
+    check("영어판 → 설정에서 한국어로 되돌리면 홈 · 카드 모두 한국어", ko and ko["lang"] == "ko" and ko["screen"] == "home" and "새 카드" in ko["head"]
+          and ko["rank"] == "신인부" and kc and kc["title"].startswith("〈") and kc["badge"] == "첫 수" and not kc["err"], (ko, kc))
+    log = game("en-nav", [[200, "g.snap('n')"]], navlang="en-US")
+    n = last(log, "n")
+    en_ok("영어판 — 영어 기기로 처음 오면 영어", n, n and n["screen"] == "hello" and "Nice to meet you" in (n["hl"] or ""))
 
     # 7) 블루프린트 — 카드 × 보기 재생 + 공의 길
     page = (WEB / "index.html").read_text(encoding="utf-8")

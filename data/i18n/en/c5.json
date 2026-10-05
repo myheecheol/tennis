@@ -1,0 +1,557 @@
+{
+ "chapter": "C5",
+ "cards": {
+  "C5-01": {
+   "title": "Reading their formation",
+   "scene": "The opponent at the back hits and runs forward.",
+   "cue": "One player is already at the net.",
+   "question": "Who do you watch now?",
+   "answer": {
+    "short": "The back player running in",
+    "why": "The one who moves changes the formation. When the back player comes in, they'll both be up soon.",
+    "caption": "You lobbed over their heads"
+   },
+   "lo": {
+    "short": "The original net player",
+    "why": "The net player matters too, but the one moving right now is changing the formation.",
+    "caption": "Cut off at the net"
+   },
+   "hi": {
+    "short": "Your partner, about to hit",
+    "why": "Watch only the ball and you miss the change. You hit your usual shot into the new formation.",
+    "caption": "Beaten by a two-up volley"
+   },
+   "coach": "Watch who's moving and you'll see the formation.",
+   "next": "Where to hit against one up, one back?"
+  },
+  "C5-02": {
+   "title": "Beating one up, one back: where to hit?",
+   "scene": "One opponent is at the net, the other at the back.",
+   "cue": "The net player is in front of you; the back player is crosscourt.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Deep to the back player",
+    "why": "Against one up, one back, drive it deep to the back player. You avoid the net player and pin the back one.",
+    "caption": "You pinned the back player"
+   },
+   "lo": {
+    "short": "At the net player's feet",
+    "why": "Their feet are a good target, but from the back the ball tends to float and get picked off.",
+    "caption": "The net player blocks it back"
+   },
+   "hi": {
+    "short": "Down the middle between them",
+    "why": "With a net player standing there, the middle is theirs. It gets cut off.",
+    "caption": "Cut off in the middle"
+   },
+   "coach": "Against one up, one back, push the back player.",
+   "next": "And once they break down?"
+  },
+  "C5-03": {
+   "title": "After breaking one up, one back: your spot",
+   "scene": "Your deep ball pushed the back player out past the line.",
+   "cue": "The opponent leans back to hit it.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Up to the service line",
+    "why": "Once you've pushed the back player out, move forward. Take the net side by side with your partner.",
+    "caption": "You took the net side by side"
+   },
+   "lo": {
+    "short": "Stay where you are",
+    "why": "Not bad, but you let the opening slip by.",
+    "caption": "You let the opening go"
+   },
+   "hi": {
+    "short": "All the way to the net at once",
+    "why": "Sprint all the way in and a lob goes right over your head.",
+    "caption": "Lobbed over"
+   },
+   "coach": "Broke them down? Move up together, side by side.",
+   "next": "What if they're two up?"
+  },
+  "C5-04": {
+   "title": "Beating two up: first and second choice",
+   "scene": "Both opponents came forward, but not all the way to the net.",
+   "cue": "Both are standing near the service line.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Low between them, at their feet",
+    "why": "Two up but far from the net leaves their feet open. Drop it low between them.",
+    "caption": "Broke them down at their feet"
+   },
+   "lo": {
+    "short": "A lob over their heads",
+    "why": "Usually the first choice, but against players far from the net a lob tends to land short.",
+    "caption": "They back up and hit it"
+   },
+   "hi": {
+    "short": "Hard at the front player",
+    "why": "Waist-high straight at them comes right back as a volley.",
+    "caption": "It came back as a volley"
+   },
+   "coach": "Two up but far back? Go for the feet first.",
+   "next": "What if they're two back?"
+  },
+  "C5-05": {
+   "title": "Beating two back: draw them in short",
+   "scene": "Both opponents are staying on the baseline. You get an easy ball.",
+   "cue": "The front of their court is wide open.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Short crosscourt to draw them in",
+    "why": "With both back, the front is open. Draw them in short and their formation falls apart.",
+    "caption": "You drew them in and finished it"
+   },
+   "lo": {
+    "short": "Deep down the middle",
+    "why": "Safe, but with both back they return it comfortably.",
+    "caption": "They return it comfortably"
+   },
+   "hi": {
+    "short": "Hard into the deep corner",
+    "why": "With both at the back, a deep ball goes right to them. The corner is easy to miss, too.",
+    "caption": "Went for the corner — out"
+   },
+   "coach": "Against two back, draw them in short.",
+   "next": "And after you draw them in?"
+  },
+  "C5-06": {
+   "title": "After drawing them in, we move up",
+   "scene": "Your short crosscourt pulled the opponent forward.",
+   "cue": "The opponent runs in and bends their knees.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Close in at the net, side by side",
+    "why": "A player pulled in has to scoop the ball up. Move in so you can hit it from above.",
+    "caption": "You moved up and finished it"
+   },
+   "lo": {
+    "short": "Stay where you are",
+    "why": "Not bad, but you let the floater bounce and it's a rally again.",
+    "caption": "It's a rally again"
+   },
+   "hi": {
+    "short": "Back off",
+    "why": "Draw them in and then back off, and you can't reach the short ball.",
+    "caption": "It dropped short"
+   },
+   "coach": "You drew them in — now we move in.",
+   "next": "Signs that attack is turning to defense"
+  },
+  "C5-07": {
+   "title": "From attack to defense: three signs",
+   "scene": "Your partner's volley floated up high. The opponent is set and waiting.",
+   "cue": "The opponent stands tall with the racket raised high.",
+   "question": "How will the next ball come?",
+   "answer": {
+    "short": "Slammed down hard",
+    "why": "The ball floated, they're set, and the racket is high. See all three signs and it's time to defend.",
+    "caption": "You backed off and blocked it"
+   },
+   "lo": {
+    "short": "A soft short tap",
+    "why": "It could happen, but with all three signs it usually comes hard.",
+    "caption": "You barely blocked it"
+   },
+   "hi": {
+    "short": "A weak ball back over",
+    "why": "A player who's set has no reason to hit soft. Move in and it's right at you.",
+    "caption": "Hit right at you"
+   },
+   "coach": "Ball up, opponent set, racket high — defend.",
+   "next": "Once you've seen the signs?"
+  },
+  "C5-08": {
+   "title": "From defense to attack: three signs",
+   "scene": "Your low ball landed at the opponent's feet.",
+   "cue": "The opponent is almost kneeling to dig it out.",
+   "question": "How will the next ball come?",
+   "answer": {
+    "short": "High and slow",
+    "why": "They're hitting low, leaning, with an open racket face. Three signs — switch to attack.",
+    "caption": "You switched to attack"
+   },
+   "lo": {
+    "short": "Deep crosscourt",
+    "why": "It could, but a ball dug out low usually floats. You're just waiting for a chance.",
+    "caption": "You just hit it back"
+   },
+   "hi": {
+    "short": "Hit back hard",
+    "why": "Someone digging it out low can't hit hard. Back off and the floater drops in front of you.",
+    "caption": "It dropped in front of you"
+   },
+   "coach": "Low and leaning? Time to attack.",
+   "next": "Once you've seen the signs?"
+  },
+  "C5-09": {
+   "title": "You saw the signs — what changes?",
+   "scene": "Your volley floated and the opponent is set. That's a defense sign.",
+   "cue": "Their racket is up over their head.",
+   "question": "What do you change?",
+   "answer": {
+    "short": "Both back off and hit high",
+    "why": "When you see the defense sign, change your position and your shot together. Both back off and lift it high.",
+    "caption": "You changed spot and shot"
+   },
+   "lo": {
+    "short": "Only you back off",
+    "why": "You backed off right, but your partner stays up and you're split diagonally.",
+    "caption": "You barely held them off"
+   },
+   "hi": {
+    "short": "Stay in attack position",
+    "why": "See the signs and stay put, and you're a smash target.",
+    "caption": "The smash slammed in"
+   },
+   "coach": "See the sign? Change it together.",
+   "next": "Plan it in five shots"
+  },
+  "C5-10": {
+   "title": "Keep hitting to the weak player?",
+   "scene": "You hit to the weak back player three times and won all three.",
+   "cue": "Their net player is creeping toward the middle.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Weak side, deeper and wider",
+    "why": "Keep hammering the weakness. But the net player is closing in, so go deeper and wider.",
+    "caption": "Broke them down again"
+   },
+   "lo": {
+    "short": "Switch to the net player's feet",
+    "why": "Mixing it up is good, but the strong net player is likely to block it.",
+    "caption": "The strong one blocks it"
+   },
+   "hi": {
+    "short": "Weak side, short to the middle",
+    "why": "Go into the middle where the net player is closing in and it gets cut off.",
+    "caption": "Cut off by the net player"
+   },
+   "coach": "Hammer the weakness, but away from the net player.",
+   "next": "After the same shot three times?"
+  },
+  "C5-11": {
+   "title": "After the same shot three times",
+   "scene": "You hit the same crosscourt three times. Now they're there early.",
+   "cue": "The back player is already waiting near the crosscourt corner.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Deep down the middle",
+    "why": "Change a shot they've read. The back player is in the corner, so the middle is open.",
+    "caption": "Into the open middle"
+   },
+   "lo": {
+    "short": "Crosscourt again",
+    "why": "It might work, but that's where they're already waiting.",
+    "caption": "They were waiting for it"
+   },
+   "hi": {
+    "short": "Down the line at the net player",
+    "why": "The net player is still standing there. Down the line is right in front of their racket.",
+    "caption": "The net player picked it off"
+   },
+   "coach": "Same shot three times? Change the fourth.",
+   "next": "What if the net player moves first?"
+  },
+  "C5-12": {
+   "title": "They've read your pattern",
+   "scene": "Every time the ball went left you followed, and twice they passed you on the right.",
+   "cue": "The opponent is watching the side you leave open.",
+   "question": "Where do you go this time?",
+   "answer": {
+    "short": "Follow only to the middle",
+    "why": "Following is right, but go all the way and you leave a hole. Go only to the middle.",
+    "caption": "You caught the ball they aimed"
+   },
+   "lo": {
+    "short": "Stay where you are",
+    "why": "You cover your side, but this time the middle opens.",
+    "caption": "Your partner barely gets it"
+   },
+   "hi": {
+    "short": "Follow all the way left",
+    "why": "Follow all the way and the spot they were aiming for opens up again.",
+    "caption": "Passed on the right again"
+   },
+   "coach": "If they've read you, follow only halfway.",
+   "next": "What if your partner keeps getting passed?"
+  },
+  "C5-13": {
+   "title": "Planning a point: serve, poach, finish",
+   "scene": "As planned, your partner served down the T. Your turn to poach.",
+   "cue": "The returner swings crosscourt from the middle.",
+   "question": "Where do you hit from, and where to?",
+   "answer": {
+    "short": "Middle, at the net player's feet",
+    "why": "A return off a T serve comes through the middle. Cut it off and put it at the nearest player's feet.",
+    "caption": "Finished as planned"
+   },
+   "lo": {
+    "short": "Wait where you are",
+    "why": "Break the plan and your partner has to take it alone.",
+    "caption": "The plan fell apart"
+   },
+   "hi": {
+    "short": "Leave before the serve",
+    "why": "Leave before the serve and the returner sees it and goes down the line. Go the moment they hit the return.",
+    "caption": "Passed down the open line"
+   },
+   "coach": "A planned poach starts on the return.",
+   "next": "Where will they hit it?"
+  },
+  "C5-14": {
+   "title": "Hit it here — where does it come back?",
+   "scene": "Both opponents were back, so you went deep down the middle.",
+   "cue": "The opponent is hitting from the very center of the court.",
+   "question": "Where will they hit it?",
+   "answer": {
+    "short": "Back down the middle",
+    "why": "From the middle there's no angle. The ball usually comes back to the middle.",
+    "caption": "You were already in the middle"
+   },
+   "lo": {
+    "short": "A lob over your head",
+    "why": "It could happen, but a lob from the middle tends to be short.",
+    "caption": "You back up and barely get it"
+   },
+   "hi": {
+    "short": "Down the line beside you",
+    "why": "There's no angle for the line from the middle. Cover your side and the middle opens.",
+    "caption": "It went through the middle"
+   },
+   "coach": "Send it down the middle and it comes back down the middle.",
+   "next": "How do you cover their answer early?"
+  },
+  "C5-15": {
+   "title": "The spot that covers their answer",
+   "scene": "Both opponents are back, and you get a high ball.",
+   "cue": "The front right of their court is wide open.",
+   "question": "Where do you go after you hit?",
+   "answer": {
+    "short": "Angle it right, then to the middle",
+    "why": "Pull them out with an angle and they answer crosscourt or down the line. Your partner covers the line; you cover the middle.",
+    "caption": "You covered their answer"
+   },
+   "lo": {
+    "short": "Angle it, then stay put",
+    "why": "A good angle, but you're both late on an answer through the middle.",
+    "caption": "You barely covered it"
+   },
+   "hi": {
+    "short": "Angle it, then back off",
+    "why": "Pull them in and then back off, and a short answer drops in front of you.",
+    "caption": "Beaten by a short answer"
+   },
+   "coach": "Before you hit, cover their answer.",
+   "next": "Plan it in five shots"
+  },
+  "C5-16": {
+   "title": "The net player moved early: go the other way",
+   "scene": "You're about to hit a fourth crosscourt, and the net player moves first.",
+   "cue": "The net player leaves for the middle before the ball does.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "Down the line behind them",
+    "why": "If they guess and move early, the other side opens. That's when you go down the line.",
+    "caption": "Passed them the other way"
+   },
+   "lo": {
+    "short": "Crosscourt, even deeper",
+    "why": "A good ball might work, but the net player is already in the path.",
+    "caption": "The net player barely touches it"
+   },
+   "hi": {
+    "short": "Right at the net player",
+    "why": "Hit to where the net player is going and it's cut off.",
+    "caption": "Cut off"
+   },
+   "coach": "Net player moved early? Go the other way.",
+   "next": "What about a windy day?"
+  },
+  "C5-17": {
+   "title": "Your partner keeps getting passed",
+   "scene": "The opponent passed your partner down the line twice.",
+   "cue": "The opponent opens up toward the line again.",
+   "question": "Where do you go?",
+   "answer": {
+    "short": "Half a step behind your partner",
+    "why": "If your partner's side keeps getting passed, you back them up. Half a step and you can reach the line ball.",
+    "caption": "You backed up the line"
+   },
+   "lo": {
+    "short": "Stay where you are",
+    "why": "You hold your spot, but the line ball is too far.",
+    "caption": "You barely reach it from afar"
+   },
+   "hi": {
+    "short": "Move up and pressure",
+    "why": "Your partner's back is open — go up too and the line is wide open.",
+    "caption": "Passed down the line again"
+   },
+   "coach": "If your partner gets passed, back them up.",
+   "next": "Try the Australian formation?"
+  },
+  "C5-18": {
+   "title": "Should we try the Australian formation?",
+   "scene": "We keep losing to the returner's crosscourt return. Let's change formation.",
+   "cue": "The returner's crosscourt only goes toward our server.",
+   "question": "Where do you stand?",
+   "answer": {
+    "short": "At the net, on the server's side",
+    "why": "Stand in the crosscourt path and the returner has to switch to down the line. The server covers the left after serving.",
+    "caption": "You blocked the crosscourt path"
+   },
+   "lo": {
+    "short": "Your usual spot",
+    "why": "Familiar, but it leaves open the crosscourt you keep losing to.",
+    "caption": "Crosscourt again"
+   },
+   "hi": {
+    "short": "In the middle, ahead of time",
+    "why": "Standing halfway in the middle leaves the left line open. Commit to the formation.",
+    "caption": "Passed down the left line"
+   },
+   "coach": "Losing crosscourt? Stand in the crosscourt path.",
+   "next": "What about a day with wind and sun?"
+  },
+  "C5-19": {
+   "title": "Choosing your shot in wind and sun",
+   "scene": "A strong wind blows from their side toward ours.",
+   "cue": "Both opponents at the net are facing the sun.",
+   "question": "Where do you hit it?",
+   "answer": {
+    "short": "A high lob, down the middle",
+    "why": "Into the wind, a lob won't sail long. And a smash hit looking into the sun often misses.",
+    "caption": "Their smash missed"
+   },
+   "lo": {
+    "short": "Between them, at their feet",
+    "why": "A good play, but into the wind the ball sits up for an easy volley.",
+    "caption": "Volleyed back over"
+   },
+   "hi": {
+    "short": "Hard at the front player",
+    "why": "Into the wind a hard ball slows and sits up for the net player. They put it away.",
+    "caption": "The slowed ball got picked off"
+   },
+   "coach": "Headwind and sun are on the lob's side.",
+   "next": "Plan it in five shots"
+  },
+  "C5-20": {
+   "title": "Planning a point in five shots",
+   "scene": "Wide serve, crosscourt return — all as planned. Now it's the third ball.",
+   "cue": "The returner is still recovering from out wide.",
+   "question": "Where do you go after you hit?",
+   "answer": {
+    "short": "Deep middle, then move in",
+    "why": "Hit deep down the middle to the recovering returner, then finish the floater up front.",
+    "caption": "Finished as planned in five"
+   },
+   "lo": {
+    "short": "Deep middle, then stay",
+    "why": "A good third ball, but stay back and you miss the floater. The plan goes all the way to the net.",
+    "caption": "You let the floater go"
+   },
+   "hi": {
+    "short": "Hard down the line, then charge",
+    "why": "Down the line is where the net player is standing. The plan breaks at the third ball.",
+    "caption": "The plan broke at ball three"
+   },
+   "coach": "The plan doesn't end at the third ball.",
+   "next": "Read three shots ahead"
+  },
+  "C5-21": {
+   "title": "Rally simulation A: three shots ahead",
+   "scene": "Your partner's deep crosscourt went to the back player's corner.",
+   "cue": "The back player turns into a crosscourt stance.",
+   "question": "Where will the next ball go?",
+   "answer": {
+    "short": "Crosscourt again",
+    "why": "A back player pushed deep usually answers with the same crosscourt. The third ball is your poach.",
+    "caption": "You took the third ball"
+   },
+   "lo": {
+    "short": "Down the line beside you",
+    "why": "It could come, but down the line is hard when you're pushed deep.",
+    "caption": "The crosscourt went past"
+   },
+   "hi": {
+    "short": "A lob over your head",
+    "why": "Pushed deep, their lob is short too. Back off and you miss the crosscourt through the middle.",
+    "caption": "It went through the middle"
+   },
+   "coach": "Push them deep, and the next crosscourt is yours.",
+   "next": "Simulation B"
+  },
+  "C5-22": {
+   "title": "Rally simulation B",
+   "scene": "The opponent's back player got dragged out past the left corner.",
+   "cue": "The back right of their court is wide open.",
+   "question": "Where do you go after you hit?",
+   "answer": {
+    "short": "Into the open back, then middle",
+    "why": "The back corner opposite the dragged player is the widest gap. Hit it, then return to the middle.",
+    "caption": "Finished into the open back"
+   },
+   "lo": {
+    "short": "Net player's feet, then stay",
+    "why": "A good target, but you hit at a person when there was a bigger gap.",
+    "caption": "The net player blocks it back"
+   },
+   "hi": {
+    "short": "Back to the side they went",
+    "why": "Send it back to the player you dragged out and you give them time to recover.",
+    "caption": "Passed by the ball they sent back"
+   },
+   "coach": "Drag them out and the other side opens.",
+   "next": "Simulation C"
+  },
+  "C5-23": {
+   "title": "Rally simulation C",
+   "scene": "While your partner is pulled out wide left, a ball comes down the middle.",
+   "cue": "Your partner is still on the way back.",
+   "question": "Where do you hit from, and how?",
+   "answer": {
+    "short": "Move to the middle, hit deep",
+    "why": "Buy time for your partner. Hit deep from the middle and you both get back in position.",
+    "caption": "You both got back in position"
+   },
+   "lo": {
+    "short": "A sharp angle to the side",
+    "why": "Nice angle, but it comes back fast into the open left.",
+    "caption": "It came back to the open left"
+   },
+   "hi": {
+    "short": "Hard at the net player",
+    "why": "Hit hard at the net player and it comes back into the open left. Your partner isn't there yet.",
+    "caption": "Passed through the open left"
+   },
+   "coach": "If your partner's out, buy time.",
+   "next": "The final shot"
+  },
+  "C5-24": {
+   "title": "Final: the shot that ends this point",
+   "scene": "One opponent is at the net, the other is recovering from the right corner.",
+   "cue": "A high ball floats up in front of you.",
+   "question": "Where's the finishing shot?",
+   "answer": {
+    "short": "The gap between them",
+    "why": "One is up, one is recovering. The space between them is the biggest gap in this point.",
+    "caption": "You ended the point"
+   },
+   "lo": {
+    "short": "At the net player's feet",
+    "why": "A good target, but right now there's a bigger gap.",
+    "caption": "They block it back"
+   },
+   "hi": {
+    "short": "The corner they're returning from",
+    "why": "Send it to the recovering player and it's right on their path. You hand back the ball you should finish.",
+    "caption": "Sent right into their path"
+   },
+   "coach": "To finish, aim for the biggest gap right now.",
+   "next": "Back to the first spot"
+  }
+ }
+}

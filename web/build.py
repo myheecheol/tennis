@@ -108,12 +108,17 @@ chapters = [{"id": ch["id"], "title": ch["title"], "goal": ch["goal"], "free": c
 config = json.loads((WEB / "play.config.json").read_text(encoding="utf-8"))
 chains = json.loads((ROOT / "data" / "chains.json").read_text(encoding="utf-8"))
 # 실전 모드의 상대(이름은 play.config.json 의 opponent) — 사용자가 준 캐릭터 시트에서 배경 없이 오린 얼굴 다섯 · 전신
+# 영어판(PRD #30) — 화면 글 사전(web/i18n/en.json)과 카드 번역(data/i18n/en/c*.json). 열쇠는 한국어 원문 · 카드 ID
+en = json.loads((WEB / "i18n" / "en.json").read_text(encoding="utf-8"))
+en.pop("_note", None)
+en["cards"] = {k: v for f in sorted((ROOT / "data" / "i18n" / "en").glob("c*.json"))
+               for k, v in json.loads(f.read_text(encoding="utf-8"))["cards"].items()}
 opponent = {f.stem: "data:image/webp;base64," + base64.b64encode(f.read_bytes()).decode("ascii")
             for f in sorted((WEB / "assets" / "opponent").glob("*.webp"))}
 play = page("play.template.html", "play.html",
             (("CARDS_JSON", cards), ("CAMERAS_JSON", cams), ("CHAPTERS_JSON", chapters), ("CONFIG_JSON", config),
-             ("CHAINS_JSON", {"pairs": chains["pairs"]}), ("OPPONENT_JSON", opponent)))
-print(f"play.html   {len(play):,} bytes  (검증판 · 카드 {len(cards)}장 · 원 포인트 게임 {len(chains['pairs'])}짝 · 기록 주소 {'있음' if config.get('endpoint') else '없음'})")
+             ("CHAINS_JSON", {"pairs": chains["pairs"]}), ("OPPONENT_JSON", opponent), ("I18N_JSON", {"en": en})))
+print(f"play.html   {len(play):,} bytes  (검증판 · 카드 {len(cards)}장 · 원 포인트 게임 {len(chains['pairs'])}짝 · 기록 주소 {'있음' if config.get('endpoint') else '없음'} · 영어 카드 {len(en['cards'])}장)")
 
 # 정적 호스팅용 — 뼈대가 없으면 폰에서 데스크톱 폭(980px)으로 작게 그려지고, 서버가 charset 을 안 주면 한글이 깨진다
 DESC = "복식 테니스 초보를 위한 전술 게임 — 공이 멈추면 고르고, 고른 대로 공과 사람이 움직여요. 츄어리와 10초 실전도."
