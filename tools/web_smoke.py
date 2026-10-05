@@ -75,7 +75,8 @@ function snap(tag){var say=q('#p-say'),t=q('#toast');
     shows:SHOWS.slice(-3).join(','),links:linkStat(),ownerln:!q('#h-owner').hidden,where:!q('#h-where').hidden,
     fsw:window.__FSW||0,fskeys:window.__FS?Object.keys(window.__FS).sort().join(','):null,fbcfg:window.__FBCFG?window.__FBCFG.projectId:null,
     fsdoc:window.__FS&&window.__FS['players/anon1']?{nick:window.__FS['players/anon1'].nick,taste:!!window.__FS['players/anon1'].taste,answered:window.__FS['players/anon1'].answered}:null,
-    gst:document.querySelectorAll('script[src*="gstatic"]').length,errs:q('#s-stats').hidden?null:(q('#st-body').textContent.match(/기기 오류 \d+/)||[null])[0],dcards:q('#d-cards').hidden?null:q('#d-cards').textContent.slice(0,120),dhead:q('#s-done').hidden?null:q('#d-head').textContent,dxp:q('#s-done').hidden?null:q('#d-xp').textContent,hc:q('#d-hc').hidden?null:q('#d-hc').textContent,reps:q('.rlist')?q('.rlist').textContent:null,
+    gst:document.querySelectorAll('script[src*="gstatic"]').length,people:q('#st-people')&&!q('#s-stats').hidden?q('#st-people').textContent:null,
+    npeople:q('#s-stats').hidden?null:((q('#st-body').textContent.match(/참여자 (\d+)명/)||[])[1]||null),errs:q('#s-stats').hidden?null:(q('#st-body').textContent.match(/기기 오류 \d+/)||[null])[0],dcards:q('#d-cards').hidden?null:q('#d-cards').textContent.slice(0,120),dhead:q('#s-done').hidden?null:q('#d-head').textContent,dxp:q('#s-done').hidden?null:q('#d-xp').textContent,hc:q('#d-hc').hidden?null:q('#d-hc').textContent,reps:q('.rlist')?q('.rlist').textContent:null,
     lvs:[].map.call(document.querySelectorAll('#ml-lv [aria-pressed=true]'),function(b){return b.getAttribute('data-lv');}).join(','),
     title:q('#gs-name').textContent,scene:q('#gs-scene-t').textContent,dock:q('#gs-dock').textContent.slice(0,90),
     head:q('#t-head').textContent,say:say.hidden?null:say.textContent,prog:q('#p-n').textContent,rank:q('#bar-rank-t').textContent,
@@ -398,6 +399,8 @@ def main():
     check("저장소 — 불러온 뒤 한 번 동기화, 만든 사람 링크", h and h["writes"] == 1 and h["owner"], h)
     check("저장소 — 답할 때마다 쓴다", a and a["writes"] >= 3, a)
     check("검증 지표 — 참여자 두 명 집계", s and s["stats"] and s["stats"].startswith("2튜토리얼") and not s["err"], s)
+    check("검증 지표 — 참여자 목록에 닉네임(없으면 '닉네임 없음')과 한 일", s and s["npeople"] == "2" and "테스터" in (s["people"] or "")
+          and "(닉네임 없음)" in (s["people"] or "") and "카드 30장" in (s["people"] or ""), s and (s["npeople"], s["people"]))
     check("감수 메모 — 신고에 적은 한 줄이 검증 지표에 모인다", s and s["reps"] and "리시버가 늦으면 B 도 맞아요" in s["reps"]
           and "그림이 헷갈려요" in s["reps"] and "테스터" in s["reps"], s and s["reps"])
 
@@ -440,7 +443,7 @@ def main():
           and not o0["owner"] and o0["where"] and "players/anon1" in (o0["fskeys"] or ""), o0)
     check("Firebase — Google 로그인한 만든 사람 → 검증 지표에 모든 참여자", o1 and o1["owner"] and not o1["ownerln"]
           and "만든 사람으로 로그인" in (o1["toast"] or "") and o2 and o2["stats"] and o2["stats"].startswith("3") and "<img" in (o2["reps"] or "")
-          and "players/g_owner" in (o2["fskeys"] or "") and not o2["err"], (o1, o2))
+          and "players/g_owner" in (o2["fskeys"] or "") and o2["npeople"] == "4" and "테스터" in (o2["people"] or "") and not o2["err"], (o1, o2))
     log = game("fboff", [[300, "g.snap('x')"]], state([(cid, "정답", None) for cid in IDS[:5]]), hash="#owner")
     x = last(log, "x")
     check("Firebase 설정이 없으면 SDK 를 받지 않는다 · 로그인 링크도 없다", x and x["gst"] == 0 and not x["ownerln"] and not x["where"]

@@ -250,6 +250,11 @@ html,body{min-height:100%}
 .rlist .rid{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-2)}
 .rlist .rr{font-weight:700;color:var(--bad)}
 .rlist small{color:var(--muted);font-family:var(--f-mono);font-size:11px}
+.plist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13.5px;line-height:1.5}   /* 검증 지표 — 참여자(닉네임) 목록 */
+.plist li{padding:7px 10px;border-radius:10px;background:var(--sunk)}
+.plist .pn{font-weight:700}.plist .pn.none{font-weight:500;color:var(--muted)}
+.plist .pid{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);margin-left:4px}
+.plist small{display:block;color:var(--ink-2);font-size:12px}
 
 /* 챕터 */
 .chs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
@@ -1730,18 +1735,18 @@ function kpi(n,label,ok){return '<div class="kpi'+(ok?' ok':'')+'"><b>'+n+'</b><
 function showStats(){showScreen('stats');var b=$('st-body');
   if(!Remote.col){b.innerHTML='<p class="note">기록 저장소에 연결되지 않았어요.</p>';return;}
   b.innerHTML='<p class="note">불러오는 중이에요…</p>';
-  Remote.col.get().then(function(q){renderStats(q.docs.map(function(d){return d.data();}).filter(Boolean).map(cleanDoc));},
+  Remote.col.get().then(function(q){renderStats(q.docs.map(function(d){var x=d.data();return x?cleanDoc(x,d.id):null;}).filter(Boolean));},
     function(){b.innerHTML='<p class="note">기록을 불러오지 못했어요. 잠시 뒤 다시 열어 주세요.</p>';});}
 /* 남이 쓴 문서 — 공개 배포에서는 누구나 자기 문서를 쓸 수 있다. 모양이 틀려도 검증 지표가 깨지지 않게 쓰는 칸만 골라 다듬는다 */
-function cleanDoc(d){
+function cleanDoc(d,id){
   var o=d&&typeof d==='object'?d:{};
-  function str(v){return typeof v==='string'?v:v==null?'':String(v);}
+  function str(v){return typeof v==='string'?v:typeof v==='number'&&isFinite(v)?String(v):'';}
   function arr(v){return Array.isArray(v)?v:[];}
   function obj(v){return v&&typeof v==='object'&&!Array.isArray(v)?v:{};}
   function num(v){return typeof v==='number'&&isFinite(v)?v:0;}
   var cards={},m=obj(o.match);Object.keys(obj(o.cards)).forEach(function(id){cards[id]={f:str(obj(o.cards[id]).f)};});
-  return {answered:num(o.answered),wait:o.wait?str(o.wait):null,taste:o.taste?1:null,cards:cards,nick:str(o.nick).slice(0,20),
-    days:arr(o.days).filter(function(x){return typeof x==='string';}),chainRuns:num(o.chainRuns),match:{n:num(m.n),w:num(m.w)},
+  return {id:str(id),first:str(o.first),last:str(o.last),answered:num(o.answered),wait:o.wait?str(o.wait):null,taste:o.taste?1:null,cards:cards,nick:str(o.nick).slice(0,20),
+    days:arr(o.days).filter(function(x){return typeof x==='string';}),chainRuns:num(o.chainRuns),match:{n:num(m.n),w:num(m.w),l:num(m.l)},
     reports:arr(o.reports).map(function(x){x=obj(x);return {c:str(x.c),r:str(x.r),n:str(x.n).slice(0,300),at:str(x.at)};}),
     ev:arr(o.ev).map(function(x){x=obj(x);return {e:str(x.e),m:str(x.m).slice(0,300),at:str(x.at),t:str(x.t),c:str(x.c),sc:str(x.sc)};})};}
 function renderStats(ps){
@@ -1754,6 +1759,20 @@ function renderStats(ps){
       matchers=ps.filter(function(p){return p.match&&p.match.n>0;}).length,beat=ps.filter(function(p){return p.match&&p.match.w>0;}).length;
   var h='<div class="kpis">'+kpi(tasted,'튜토리얼을 푼 사람')+kpi(st.length,'오늘의 코트를 시작한 사람')+kpi(rate+'%','30장까지 푼 사람 · 목표 60%',st.length&&rate>=60)
       +kpi(more,'30장 넘게 계속 푼 사람 · 목표 3명',more>=3)+kpi(fin.length,TOTAL+'장 완주')+kpi(wait,'다음 카드 기다림')+kpi(chainers,'원 포인트 게임을 해 본 사람')+kpi(matchers,'실전 모드를 해 본 사람')+kpi(beat,jo(OPN,'을','를')+' 이긴 사람')+kpi(d7,'7일 뒤에도 온 사람')+kpi(reps,'이 카드 이상해요')+'</div>';
+  // 참여자 — 닉네임과 한 일. 최근에 온 순. 같은 닉네임이 둘이면 끝의 id 네 글자로 가른다
+  function md(x){var d=x?new Date(x):null;return d&&!isNaN(d)?(d.getMonth()+1)+'/'+d.getDate():'—';}   // 이 기기 시각으로 (한국이면 한국 날짜)
+  var people=ps.slice().sort(function(a,b){var x=a.last||a.first,y=b.last||b.first;return x<y?1:x>y?-1:0;});
+  h+='<div class="card"><h2>참여자 '+people.length+'명 — 닉네임 · 최근에 온 순</h2>'+(people.length?'<ul class="plist" id="st-people">'+people.slice(0,300).map(function(p){
+      var ids=Object.keys(p.cards),g=ids.filter(function(k){return p.cards[k].f==='정답';}).length,m=p.match,bits=[];
+      bits.push(md(p.first)+' 처음 · '+md(p.last)+' 마지막 · '+p.days.length+'일');
+      bits.push(p.taste?'튜토리얼 ✓':'튜토리얼 —');
+      if(p.answered||ids.length)bits.push('카드 '+(p.answered||ids.length)+'장'+(ids.length?' · 첫 정답 '+Math.round(g/ids.length*100)+'%':''));
+      if(m.n)bits.push('실전 '+m.n+'게임 '+m.w+'승 '+(m.l||Math.max(0,m.n-m.w))+'패');
+      if(p.chainRuns)bits.push('원 포인트 '+p.chainRuns+'판');
+      if(p.reports.length)bits.push('신고 '+p.reports.length);
+      return '<li>'+(p.nick?'<span class="pn">'+esc(p.nick)+'</span>':'<span class="pn none">(닉네임 없음)</span>')+'<span class="pid">'+esc(p.id.slice(-4))+'</span>'
+        +'<small>'+esc(bits.join(' · '))+'</small></li>';}).join('')+'</ul>'+(people.length>300?'<p class="note">최근 300명만 보여요.</p>':'')
+    :'<p class="note">아직 없어요.</p>')+'</div>';
   var reps=[];ps.forEach(function(p){(p.reports||[]).forEach(function(x){reps.push({c:x.c,r:x.r,n:x.n,at:x.at,who:p.nick||''});});});   // 신고 · 감수 메모 — 새것부터, 쓴 사람 닉네임과
   reps.sort(function(a,b){return (b.at||'')>(a.at||'')?1:-1;});
   h+='<div class="card"><h2>신고 · 감수 메모 '+reps.length+'</h2>'+(reps.length?'<ul class="rlist">'+reps.slice(0,80).map(function(x){var rc=BY[x.c];
