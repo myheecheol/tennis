@@ -19,6 +19,7 @@ echo
 echo "── 4/6 생성 문서 갱신"
 python3 tools/render_curriculum.py
 python3 tools/render_exemplars.py
+python3 tools/review_pack.py
 
 echo
 echo "── 5/6 웹 페이지 빌드"

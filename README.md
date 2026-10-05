@@ -13,6 +13,7 @@ web/         play.html — 검증판 게임 (카드 120장 · 닉네임 · 튜�
              index.html — 설계 페이지 (카드 플레이어 · 프롬프트 체인) · src/ — 두 페이지가 같이 쓰는 코트 엔진
 site/        index.html — 같은 게임을 문서 뼈대째로 (GitHub Pages 로 올린다 · build.py 가 만든다)
 firebase/    firestore.rules — 공개 배포의 기록(Firestore) 권한: 참여자는 자기 문서만, 만든 사람은 모두 읽기
+review/      외부 리뷰 묶음 — Gemini · ChatGPT · 코치에게 줄 카드 글(cards.md) · 화면 그림 · 붙여 넣을 말(README.md)
 ```
 
 **게임 해 보기** → <https://claude.ai/artifact/8UWWX27bebLhTStCb9W59p> (Phase 1 검증판 · 운영법은 `design/08-phase1.md`)
